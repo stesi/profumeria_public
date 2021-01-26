@@ -102,8 +102,9 @@ class ImportOrder(models.TransientModel):
                         nb_print = number_tag.text
 
                     order = self.env['pos.order'].create({
-                        'name': nb_print,
+                        'name': warehouse.text+"/"+nb_print,
                         'company_id': company_id,
+                        'pos_reference':nb_print,
                         'date_order': date_order,
                         'partner_id': partner,
                         'session_id': session.id,
