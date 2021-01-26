@@ -194,7 +194,7 @@ class ImportOrder(models.TransientModel):
                             'order_id': order.id,
                             'full_product_name': name,
                             'qty': quantity,
-                            'price_subtotal': total - subtotal,
+                            'price_subtotal': subtotal,
                             'price_subtotal_incl': total
                         })
                         if account_tax:
