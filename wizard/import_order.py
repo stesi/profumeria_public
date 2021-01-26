@@ -46,11 +46,11 @@ class ImportOrder(models.TransientModel):
         documents = documentsHeader.findall('Document')
         customerTag = False
         i = 0
-        print(str(len(documents)))
+        _logger.info(str(len(documents)))
         for document in documents:
             try:
                 i += 1
-                print("Number document " + str(i) + " line " + str(document.sourceline))
+                _logger.info("Number document " + str(i) + " line " + str(document.sourceline))
                 customerTag = document.find('CustomerCode')
                 partner = False
                 if customerTag is not None and customerTag.text:
@@ -237,11 +237,11 @@ class ImportOrder(models.TransientModel):
                             document.sourceline))
 
             except ValidationError as inst:
-                _logger.warning(str(inst))
+                _logger.warning("Line " + str(document.sourceline) + str(inst))
                 print("Line " + str(document.sourceline) + str(inst))
 
             except Exception as inst:
-                _logger.error(str(inst))
+                _logger.error("Line " + str(document.sourceline) + str(inst))
                 print("Line " + str(document.sourceline) + str(inst))
 
 # 'lines': [(0, 0, {
