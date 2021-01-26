@@ -49,7 +49,9 @@ class ImportOrder(models.TransientModel):
         _logger.info(str(len(documents)))
         for document in documents:
             try:
+
                 i += 1
+                print("Number document " + str(i) + " line " + str(document.sourceline))
                 _logger.info("Number document " + str(i) + " line " + str(document.sourceline))
                 customerTag = document.find('CustomerCode')
                 partner = False
@@ -159,9 +161,12 @@ class ImportOrder(models.TransientModel):
                         vatTag = row.find('VatCode')
                         vat=False
                         if vatTag.text:
-                            vat = float(vatTag.text)
-                            account_tax = self.env['account.tax'].search([('amount','=',vat),
-                                                                          ('type_tax_use','=','sale')],limit=1)
+                            try:
+                                vat = float(vatTag.text)
+                                account_tax = self.env['account.tax'].search([('amount', '=', vat),
+                                                                              ('type_tax_use', '=', 'sale')], limit=1)
+                            except ValueError:
+                                    pass
 
 
                         subtotal = 0
