@@ -302,7 +302,9 @@ class ImportOrder(models.TransientModel):
                     warehouse_id = self.env['stock.warehouse'].search([('name','=',warehouse.text)])
 
                     picking_type_id = self.env['stock.picking.type'].search([('warehouse_id','=',warehouse_id.id),('name','=',"Receipts")])
-
+                    if len(picking_type_id)<=0:
+                        self.env['stock.picking.type'].search(
+                            [('warehouse_id', '=', warehouse_id.id), ('name', '=', "Ricezioni")])
 
                     date_tag = document.find('Date')
                     if date_tag is not None and date_tag.text:
