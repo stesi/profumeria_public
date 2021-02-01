@@ -340,6 +340,11 @@ class ImportOrder(models.TransientModel):
                         description = row.find('Description')
                         if description.text:
                             name = description.text
+                        else:
+                            if product_id.name:
+                                name=product_id.name
+                            else:
+                                continue
 
                         quantity = 0
                         quantityTag = row.find('Qty')
@@ -387,6 +392,7 @@ class ImportOrder(models.TransientModel):
                                 discount = price * float(discount) / 100
 
 
+
                         line = self.env['purchase.order.line'].create({
                             'product_id': product_id.id,
                             'date_planned':date_order,
@@ -402,10 +408,29 @@ class ImportOrder(models.TransientModel):
                              line.taxes_id |= account_tax
                         else:
                             line.taxes_id = False
-
-                    # Confirm the first purchase order
                     purchase_order_1.button_confirm()
 
+                    if i % 100 == 0:
+                        self.env.cr.commit()
+                    if i == 49:
+                        print(i)
+                    # Confirm the first purchase order
+                    #purchase_order_1.button_confirm()
+                    # stock_picking = purchase_order_1.picking_ids[0]
+                    # res = stock_picking.button_validate()
+                    # # production = self.env['mrp.production']
+                    # # production_to_complete = production.search([('state', '=', 'progress')], limit=1000)
+                    # wizard = self.env['stock.immediate.transfer'].create({
+                    # })
+                    # #immediate_transfer = self.env[res['res_model']].with_context(res['context'])
+                    #
+                    # wizard.immediate_transfer_line_ids |= self.env['stock.immediate.transfer.line'].create({
+                    #         'to_immediate': True,
+                    #         'picking_id': purchase_order_1.id,
+                    #         'immediate_transfer_id': wizard.id
+                    #     })
+                    # wizard.process()
+                    # continue
                     # Process the reception of purchase order 1 and set date
                     # stock_picking = purchase_order_1.picking_ids[0]
                     # # res = stock_picking.with_context(skip_immediate=True).button_validate()
