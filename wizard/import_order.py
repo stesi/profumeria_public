@@ -418,8 +418,11 @@ class ImportOrder(models.TransientModel):
                         if discount >0:
                             price = price - discount
 
-                        if includeVat == "True" and price>0 and vat>0:
-                            price = ((price * 100) / (100 + vat))
+                        # if includeVat == "True" and price>0 and vat>0:
+                        #     price = ((price * 100) / (100 + vat))
+
+                        if includeVat == "False" and price>0 and vat>0:
+                            price = price + ((price * vat)/100)
 
                         line = self.env['purchase.order.line'].create({
                                 'product_id': product_id.id,
@@ -472,8 +475,9 @@ class ImportOrder(models.TransientModel):
 
                     purchase_order_1.button_confirm()
 
-                    if i % 50 == 0:
+                    if i % 2 == 0:
                         self.env.cr.commit()
+                        return
 
 
                     # Confirm the first purchase order
