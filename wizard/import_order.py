@@ -270,7 +270,14 @@ class ImportOrder(models.TransientModel):
                 _logger.info("Number document " + str(i) + " line " + str(document.sourceline))
                 customerTag = document.find('CustomerCode')
                 partner = False
-                if customerTag is not None and customerTag.text:
+                if not customerTag.text:
+                    _logger.error("Customer not found! Line: " + str(document.sourceline))
+                    customerTag = document.find('CustomerName')
+                    if not customerTag.text:
+                        _logger.error("Customer Name not found! Line: " + str(document.sourceline))
+                        continue
+
+                if customerTag.text:
                     partner_id = self.env['res.partner'].search([('ref', '=', customerTag.text)], limit=1)
                     if not partner_id.id:
                         partner_id = self.env['res.partner'].create({
@@ -454,10 +461,12 @@ class ImportOrder(models.TransientModel):
             except ValidationError as inst:
                 _logger.warning("Line " + str(document.sourceline) + str(inst))
                 print("Line " + str(document.sourceline) + str(inst))
+                return
 
             except Exception as inst:
                 _logger.error("Line " + str(document.sourceline) + str(inst))
                 print("Line " + str(document.sourceline) + str(inst))
+                return
 
     # #not working
     # @api.model
