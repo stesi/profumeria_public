@@ -475,9 +475,9 @@ class ImportOrder(models.TransientModel):
 
                     purchase_order_1.button_confirm()
 
-                    if i % 2 == 0:
+                    if i % 100 == 0:
                         self.env.cr.commit()
-                        return
+                       # return
 
 
                     # Confirm the first purchase order
