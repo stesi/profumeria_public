@@ -252,7 +252,7 @@ class ImportOrder(models.TransientModel):
                 print("Line " + str(document.sourceline) + str(inst))
 
     @api.model
-    def importOFFromDirectoryXML(self, filename):
+    def importOFFromDirectoryXML(self, filename, setting_include_vat = False):
         company_id = self.env.user.company_id.id
 
         xml = etree.parse(filename)
@@ -288,12 +288,21 @@ class ImportOrder(models.TransientModel):
                     partner = partner_id.id
                     # raise ValidationError("Partner " + customerTag.text + " not found for document " + str(i))
 
+                includeVat = False
+                pricesIncludeVat = document.find('PricesIncludeVat')
+                if pricesIncludeVat.text:
+                    includeVat = pricesIncludeVat.text.capitalize()
+
+                if str(setting_include_vat) != includeVat:
+                    continue
+
                 warehouse = document.find('Warehouse')
                 if warehouse is not None and warehouse.text:
 
                     warehouse_id = self.env['stock.warehouse'].search([('name','=',warehouse.text)])
 
                     picking_type_id = self.env['stock.picking.type'].search([('warehouse_id','=',warehouse_id.id),('name','=',"Receipts")])
+
 
                     date_tag = document.find('Date')
                     if date_tag is not None and date_tag.text:
@@ -307,6 +316,12 @@ class ImportOrder(models.TransientModel):
                     number_tag = document.find('Number')
                     if number_tag.text:
                         nb_print = number_tag.text
+
+                    purchase_total= 0
+                    purchase_totalT = document.find('Total')
+                    if purchase_totalT.text:
+                        purchase_total = float(purchase_totalT.text)
+
 
                     purchase_order_1 = self.env['purchase.order'].create({
                         'partner_id': partner,
@@ -397,30 +412,72 @@ class ImportOrder(models.TransientModel):
                                 discount = discount_temp
                             else:
                                 discount = price * float(discount) / 100
+                        
+                        if discount >0:
+                            price = price - discount
+                            
+                        if total>0:
+                           price = total/quantity
+                        else:
+                           price = total
 
-
+                        if includeVat == "True" and total>0:
+                            price = round(((price * 100) / (100 + vat)), 2)
 
                         line = self.env['purchase.order.line'].create({
-                            'product_id': product_id.id,
-                            'date_planned':date_order,
-                            'price_unit': price,
-                            'order_id': purchase_order_1.id,
-                            'product_uom': self.env.ref('uom.product_uom_unit').id,
-                            'name': name,
-                            'product_qty': quantity,
-                            #'price_subtotal': price,
-                            #'price_total':subtotal
-                        })
+                                'product_id': product_id.id,
+                                'date_planned': date_order,
+                                'price_unit': price,
+                                'order_id': purchase_order_1.id,
+                                'product_uom': self.env.ref('uom.product_uom_unit').id,
+                                'name': name,
+                                'product_qty': quantity,
+                                # 'price_total':subtotal
+                            })
                         if account_tax:
                              line.taxes_id |= account_tax
                         else:
                             line.taxes_id = False
+
+                    total_from_lines = 0
+                    for line in purchase_order_1.order_line:
+                        total_from_lines += line.price_total
+                    total_from_lines = round(total_from_lines,3)
+                    if total_from_lines != purchase_total:
+                        self.env['product.product'].search([('default_code', '=', "Info")], limit=1)
+
+                        product_id = self.env['product.product'].search([('default_code', '=', "Info")], limit=1)
+                        if not product_id.id:
+                            product_category_id = self.env['product.category'].search([('name', '=', 'Imported')],
+                                                                                      limit=1)
+                            if not product_category_id:
+                                product_category_id = self.env['product.category'].create({
+                                    'name': 'Imported',
+                                })
+
+                            product_id = self.env['product.product'].create(
+                                {'name': "Info", 'default_code': "Info",
+                                 'categ_id': product_category_id.id,
+                                 'company_id': self.env.user.company_id.id, })
+
+                        val = round((total_from_lines - purchase_total)*-1,2)
+                        self.env['purchase.order.line'].create({
+                            'product_id': product_id.id,
+                            'date_planned': date_order,
+                            'price_unit': val,
+                            'order_id': purchase_order_1.id,
+                            'product_uom': self.env.ref('uom.product_uom_unit').id,
+                            'name': 'Arrotondamento',
+                            'product_qty': 1,
+                            'taxes_id':False
+                            # 'price_total':subtotal
+                        })
+
                     purchase_order_1.button_confirm()
 
-                    if i % 100 == 0:
+                    if i % 50 == 0:
                         self.env.cr.commit()
-                    if i == 49:
-                        print(i)
+
                     # Confirm the first purchase order
                     #purchase_order_1.button_confirm()
                     # stock_picking = purchase_order_1.picking_ids[0]
