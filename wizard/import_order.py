@@ -418,11 +418,11 @@ class ImportOrder(models.TransientModel):
                         if discount >0:
                             price = price - discount
 
-                        # if includeVat == "True" and price>0 and vat>0:
-                        #     price = ((price * 100) / (100 + vat))
+                        if includeVat == "True" and price>0 and vat>0:
+                            price = ((price * 100) / (100 + vat))
 
-                        if includeVat == "False" and price>0 and vat>0:
-                            price = price + ((price * vat)/100)
+                        # if includeVat == "False" and price>0 and vat>0:
+                        #     price = price + ((price * vat)/100)
 
                         line = self.env['purchase.order.line'].create({
                                 'product_id': product_id.id,
