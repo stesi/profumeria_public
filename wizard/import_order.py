@@ -420,7 +420,6 @@ class ImportOrder(models.TransientModel):
 
                         if includeVat == "True" and price>0 and vat>0:
                             price = ((price * 100) / (100 + vat))
-
                         # if includeVat == "False" and price>0 and vat>0:
                         #     price = price + ((price * vat)/100)
 
