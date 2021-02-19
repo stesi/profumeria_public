@@ -25,7 +25,6 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'data/base_automation.xml',
         'views/view_pos_order.xml'
     ],
     # only loaded in demonstration mode
