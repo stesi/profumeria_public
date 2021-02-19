@@ -11,9 +11,6 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
         <field name="arch" type="xml">
-            <field name="name" position="after">
-                <field name="payment_method_stesi" string="Payment Method"/>
-            </field>
             <xpath expr="//filter" position="after">
                 <filter string="Orders Of The Day" name="order_day" domain="[('date_order', '&gt;', (context_today() - datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]"/>
             </xpath>
