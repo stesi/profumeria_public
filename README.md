@@ -1,2 +1,2 @@
-# STESI SO from MO
+# STESI SO from MO.
 
