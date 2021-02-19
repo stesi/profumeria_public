@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="view_pos_order_search" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="payment_method_stesi" string="Payment Method"/>
+            </field>
+            <xpath expr="//filter" position="after">
+                <filter string="Orders Of The Day" name="order_day" domain="[('date_order', '&gt;', (context_today() - datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]"/>
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter string="Stores" name="group_stores" domain="[]" context="{'group_by': 'config_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="point_of_sale.action_pos_pos_form" model="ir.actions.act_window">
+        <field name="context">{'search_default_order_day': 1, 'search_default_group_stores': 1}</field>
+    </record>
+
+</odoo>

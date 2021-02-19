@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record model="base.automation" id="assign_owner_id">
+            <field name="name">Assign owner_id to stock move line</field>
+            <field name="model_id" ref="stock.model_stock_move_line"/>
+            <field name="trigger">on_create</field>
+            <field name="filter_domain">[["owner_id","=",False]]</field>
+            <field name="state">code</field>
+            <field name="code">record.update({'owner_id': record.product_id.first_vendor_id})</field>
+        </record>
+    </data>
+</odoo>
