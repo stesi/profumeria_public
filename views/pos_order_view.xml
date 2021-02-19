@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_pos_order_tree_all_sales_lines" model="ir.ui.view">
+            <field name="model">pos.order.line</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_tree_all_sales_lines "/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']"
+                       position="after">
+                    <field name="brand"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
