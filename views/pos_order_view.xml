@@ -10,6 +10,13 @@
                        position="after">
                     <field name="brand"/>
                 </xpath>
+                <xpath expr="//field[@name='price_unit']"
+                       position="after">
+                    <field name="price_subtotal"/>
+                    <field name="price_subtotal_incl"/>
+                    <field name="purchase_price"/>
+                    <field name="margin"/>
+                </xpath>
             </field>
         </record>
 
