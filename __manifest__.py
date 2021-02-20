@@ -21,7 +21,7 @@
     'version': '14.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['point_of_sale', 'base_automation', 'sale', 'purchase', 'point_of_sale'],
+    'depends': ['point_of_sale', 'base_automation', 'sale', 'purchase', 'point_of_sale','pos_margin'],
     # always loaded
     'data': [
         'security/ir.model.access.csv',
