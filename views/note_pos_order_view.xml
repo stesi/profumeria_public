@@ -5,7 +5,7 @@
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
         <field name="arch" type="xml">
-            <field name="user_id" position="after">
+            <field name="state" position="after">
                 <field name="note" optional="show"/>
             </field>
         </field>
