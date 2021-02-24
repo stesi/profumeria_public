@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="profumeria_public_inherit_pos_order_tree_view" model="ir.ui.view">
+        <field name="name">profumeria.public.inherit.pos.order.tree.view</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="note" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>
