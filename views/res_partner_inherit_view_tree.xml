@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_parter_inherit_view_tree" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="city" position="after">
+                <field name="loyalty_points" string="Punti Fedeltà"/>
+            </field>
+        </field>
+    </record>
+</odoo>

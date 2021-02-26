@@ -31,6 +31,7 @@
         'views/purchase_order_view.xml',
         'views/sale_order_view.xml',
         'views/note_pos_order_view.xml',
+        'views/res_partner_inherit_view_tree.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
