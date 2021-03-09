@@ -5,6 +5,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='barcode']" position="after">
                 <field name="brand"/>
+                <field name="website_description"/>
             </xpath>
         </field>
     </record>
