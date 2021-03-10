@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <record id="profumeria_public_purchase_order_line_action" model="ir.actions.act_window">
-        <field name="name">Purchase Order Line</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">purchase.order.line</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem id="purchase_report_menu" name="Reporting" parent="purchase.purchase_report" sequence="0" groups="purchase.group_purchase_manager" action="purchase.action_purchase_order_report_all"/>
-
-    <menuitem id="profumeria_public_purchase_order_line_menu"
-              name="Purchase Order Line"
-              sequence="1"
-              action="profumeria_public_purchase_order_line_action"
-              parent="purchase.purchase_report"
-    />
-
     <data>
+
+        <record id="profumeria_public_purchase_order_line_action" model="ir.actions.act_window">
+            <field name="name">Purchase Order Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="purchase_report_menu" name="Reporting" parent="purchase.purchase_report" sequence="0" groups="purchase.group_purchase_manager" action="purchase.action_purchase_order_report_all"/>
+
+        <menuitem id="profumeria_public_purchase_order_line_menu"
+                  name="Purchase Order Line"
+                  sequence="1"
+                  action="profumeria_public_purchase_order_line_action"
+                  parent="purchase.purchase_report"
+        />
+
         <record id="purchase_order_line_tree" model="ir.ui.view">
             <field name="name">purchase.order.form</field>
             <field name="model">purchase.order.line</field>
