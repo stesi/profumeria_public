@@ -13,7 +13,7 @@
         </record>
 
         <template id="delivery_note_report_template" inherit_id="l10n_it_delivery_note.delivery_note_report_template">
-            <xpath position="//span[@t-field='line.product_id.default_code']" expr="replace">
+            <xpath expr="//span[@t-field='line.product_id.default_code']" position="replace">
                  <span t-field="line.product_barcode"/>
             </xpath>
         </template>
