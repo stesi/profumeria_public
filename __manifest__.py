@@ -21,7 +21,7 @@
     'version': '14.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['point_of_sale', 'base_automation', 'sale', 'purchase', 'point_of_sale','pos_margin'],
+    'depends': ['point_of_sale', 'base_automation', 'sale', 'purchase', 'point_of_sale','pos_margin', 'l10n_it_delivery_note'],
     # always loaded
     'data': [
         'security/ir.model.access.csv',
@@ -31,6 +31,7 @@
         'views/purchase_order_view.xml',
         'views/sale_order_view.xml',
         'views/note_pos_order_view.xml',
+        'views/stock_delivery_note.xml',
         'views/res_partner_inherit_view_tree.xml'
     ],
     # only loaded in demonstration mode

@@ -1,1 +1,1 @@
-from . import pos_order,product_template,pos_order_line,product_product,purchase_order_line,sale_order_line
+from . import pos_order,product_template,pos_order_line,product_product,purchase_order_line,sale_order_line,stock_delivery_note_line
