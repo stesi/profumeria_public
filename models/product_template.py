@@ -11,3 +11,10 @@ class ProductTemplate(models.Model):
         for product in self:
             product.brand = str(product.product_brand_ept_id.name)
 
+    @api.model
+    def fields_get(self, fields=None):
+        fields_to_hide = ['brand']
+        res = super(ProductTemplate, self).fields_get()
+        for field in fields_to_hide:
+            res[field]['searchable'] = False
+        return res
