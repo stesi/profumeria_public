@@ -17,4 +17,5 @@ class ProductTemplate(models.Model):
         res = super(ProductTemplate, self).fields_get()
         for field in fields_to_hide:
             res[field]['searchable'] = False
+            res[field]['sortable'] = False
         return res
