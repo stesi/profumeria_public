@@ -1,0 +1,172 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* profumeria_public
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-18 16:18+0000\n"
+"PO-Revision-Date: 2021-03-18 17:20+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__product_barcode
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_line__product_barcode
+msgid "Barcode"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line__brand
+#: model:ir.model.fields,field_description:profumeria_public.field_product_product__brand
+#: model:ir.model.fields,field_description:profumeria_public.field_product_template__brand
+#: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line__brand
+#: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__brand
+msgid "Brand"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_stock_delivery_note_line
+msgid "Delivery Note Line"
+msgstr "Riga DdT"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_pos_order__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_product_product__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_product_template__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_line__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_pos_order__id
+#: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line__id
+#: model:ir.model.fields,field_description:profumeria_public.field_product_product__id
+#: model:ir.model.fields,field_description:profumeria_public.field_product_template__id
+#: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__id
+#: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line__id
+#: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__id
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_line__id
+msgid "ID"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_profumeria_public_import_order
+msgid "Import Order and OrderLine from XML"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,help:profumeria_public.field_sale_order_line__product_barcode
+#: model:ir.model.fields,help:profumeria_public.field_stock_delivery_note_line__product_barcode
+msgid "International Article Number used for product identification."
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_pos_order____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_product_product____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_product_template____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_line____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.view_pos_order_search
+msgid "Orders Of The Day"
+msgstr "Ordini Del Giorno"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_pos_order__config_id
+msgid "Point of Sale"
+msgstr "Punto vendita"
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Righe ordine del punto vendita"
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Ordini punto vendita"
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_product_product
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_product_template
+msgid "Product Template"
+msgstr "Modello prodotto"
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.res_parter_inherit_view_tree
+msgid "Punti Fedeltà"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.actions.act_window,name:profumeria_public.profumeria_public_purchase_order_line_action
+#: model:ir.model,name:profumeria_public.model_purchase_order_line
+#: model:ir.ui.menu,name:profumeria_public.profumeria_public_purchase_order_line_menu
+msgid "Purchase Order Line"
+msgstr "Riga ordine di acquisto"
+
+#. module: profumeria_public
+#: model:ir.ui.menu,name:profumeria_public.purchase_report_menu
+msgid "Reporting"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Riga ordine di vendita"
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.view_pos_order_search
+msgid "Stores"
+msgstr "Negozi"
+
+#. module: profumeria_public
+#: model:ir.model.fields,help:profumeria_public.field_pos_order__config_id
+msgid "The physical point of sale you will use."
+msgstr "Il punto vendita fisico che verrà utilizzato."
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.delivery_note_report_template
+msgid "Total Price:"
+msgstr "Prezzo Totale:"
