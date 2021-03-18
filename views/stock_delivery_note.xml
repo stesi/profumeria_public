@@ -14,7 +14,22 @@
 
         <template id="delivery_note_report_template" inherit_id="l10n_it_delivery_note.delivery_note_report_template">
             <xpath expr="//span[@t-field='line.product_id.default_code']" position="replace">
-                 <span t-field="line.product_barcode"/>
+                <span t-field="line.product_barcode"/>
+            </xpath>
+
+            <xpath expr="//table[last()]" position="replace">
+                <table class="mt32 mb32 o_main_table table table-sm" t-if="doc.print_prices">
+                    <thead>
+                        <tr>
+                            <th width="16%"></th>
+                            <th width="16%"></th>
+                            <th width="16%"></th>
+                            <th width="16%"></th>
+                            <th width="16%">Total Price:</th>
+                            <th width="16%"><t t-esc="'{0:,.2f}'.format(int(sum(l.price_unit for l in doc.line_ids)))"/> €</th>
+                        </tr>
+                    </thead>
+                </table>
             </xpath>
         </template>
     </data>
