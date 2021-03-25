@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template id="snippet_book_dynamic" name="Latest Books">
+    <section class="book_list">
+        <div class="container">
+            <h2>Latest books</h2>
+            <table class="table book_snippet tablestriped"
+                   data-number-of-books="5">
+                <tr>
+                    <th>Name</th>
+                    <th>Release date</th>
+                </tr>
+            </table>
+        </div>
+    </section>
+</template>
