@@ -80,6 +80,7 @@
             </xpath>
             <xpath expr="//div[hasclass('o_wsale_product_information')]//a[@itemprop='name']" position="attributes">
                 <attribute name="style">font-weight: 600;</attribute>
+                <attribute name="t-att-title">product.name</attribute>
             </xpath>
             <xpath expr="//div[hasclass('o_wsale_product_information')]//div[@itemprop='offers']" position="attributes">
                 <attribute name="class">product_price text-center</attribute>
