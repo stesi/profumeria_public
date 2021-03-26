@@ -2,26 +2,88 @@
     <data>
         <template id="product_cat_brand" inherit_id="website_sale.product" name="product_cat_brand">
             <xpath expr="//h1[@itemprop='name']" position="before">
-                <h7 itemprop="brand">Brand: <a t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }" t-field="product.brand">Product
+                <h7 itemprop="brand"><a
+                        t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"
+                        t-field="product.brand">Product
                     Brand</a></h7>
             </xpath>
 
             <xpath expr="//h1[@itemprop='name']" position="after">
                 <t t-if="product.public_categ_ids">
-                    <h7 itemprop="category">Category: <a
+                    <h7 itemprop="category"><a
                             t-att-href="keep('/shop/category/%s' % slug(product.public_categ_ids[0]))"
-                            t-field="product.categ_id">Product Category</a></h7>
+                            t-field="product.categ_id.name">Product Category</a></h7>
                 </t>
                 <t t-else="">
-                    <h7 itemprop="category">Category: <a
+                    <h7 itemprop="category"><a
                             href="#"
-                            t-field="product.categ_id">Product Category</a></h7>
+                            t-field="product.categ_id.name">Product Category</a></h7>
                 </t>
             </xpath>
         </template>
 
         <template id="pricelist_list_ept_remove" inherit_id="website_sale.pricelist_list">
             <xpath expr="//a[hasclass('dropdown-toggle')]" position="replace"/>
+        </template>
+
+        <template id="all_header_sticky" inherit_id="portal.frontend_layout">
+            <xpath expr="//header//div" position="attributes">
+                <attribute name="class"></attribute>
+            </xpath>
+            <!--            <xpath expr="//section[1]" position="before">-->
+            <!--                <div class="text-left">-->
+            <!--                    <div class="">-->
+            <!--                        <t t-foreach="website.menu_id.child_id[0]" t-as="submenu">-->
+            <!--                            <t t-call="website.submenu">-->
+            <!--                                <t t-set="item_class" t-value="'nav-item'"/>-->
+            <!--                                <t t-set="link_class" t-value="'nav-link'"/>-->
+            <!--                            </t>-->
+            <!--                        </t>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </xpath>-->
+        </template>
+
+        <!--        <template id="product_wishlist_brand_categ" inherit_id="website_sale_wishlist.product_wishlist">-->
+        <!--            <xpath expr="//table[@id='o_comparelist_table']//div"-->
+        <!--                   position="before">-->
+        <!--                <h7 itemprop="brand"><a-->
+        <!--                        t-attf-href="/shop?search=&amp;attrib=0-#{ wish.product_id.product_brand_ept_id.id }"-->
+        <!--                        t-esc="wish.product_id.brand">Product-->
+        <!--                    Brand</a></h7>-->
+        <!--            </xpath>-->
+        <!--        </template>-->
+
+        <template id="product_shop_cat_brand" inherit_id="website_sale.products_item">
+            <xpath expr="//div[hasclass('o_wsale_product_information')]//div//h6" position="after">
+                <div class="o_wsale_products_item_title text-center">
+                    <t t-if="product.public_categ_ids">
+                        <h7 itemprop="category"><a title="Category"
+                                t-att-href="keep('/shop/category/%s' % slug(product.public_categ_ids[0]))"
+                                t-field="product.categ_id.name">Product Category</a></h7>
+                    </t>
+                    <t t-else="">
+                        <h7 itemprop="category"><a
+                                href="#"  title="Category"
+                                t-field="product.categ_id.name">Product Category</a></h7>
+                    </t>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[hasclass('o_wsale_product_information')]//div" position="before">
+                <div class="o_wsale_products_item_title text-center">
+                    <h7 itemprop="brand"><a  title="Brand"
+                            t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"
+                            t-field="product.brand">Product
+                        Brand</a></h7>
+                </div>
+            </xpath>
+            <xpath expr="//div[hasclass('o_wsale_product_information')]//a[@itemprop='name']" position="attributes">
+                <attribute name="style">font-weight: 600;</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('o_wsale_product_information')]//div[@itemprop='offers']" position="attributes">
+                <attribute name="class">product_price text-center</attribute>
+            </xpath>
         </template>
     </data>
 </odoo>
