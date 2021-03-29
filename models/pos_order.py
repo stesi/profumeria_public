@@ -11,9 +11,9 @@ class PosOrder(models.Model):
     config_id = fields.Many2one(store=True)
 
     @api.model
-    def fields_get(self, fields=None):
+    def fields_get(self, fields=None, attributes=None):
         fields_to_hide = ['payment_ids']
-        res = super(PosOrder, self).fields_get()
+        res = super(PosOrder, self).fields_get(fields,attributes)
         for field in fields_to_hide:
             res[field]['searchable'] = False
         return res
