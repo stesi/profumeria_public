@@ -86,5 +86,9 @@
                 <attribute name="class">product_price text-center</attribute>
             </xpath>
         </template>
+
+        <template id="remove_all_product" inherit_id="website_sale.products_categories">
+            <xpath expr="//ul//li//a" position="replace"/>
+        </template>
     </data>
 </odoo>

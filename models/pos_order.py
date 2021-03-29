@@ -15,5 +15,6 @@ class PosOrder(models.Model):
         fields_to_hide = ['payment_ids']
         res = super(PosOrder, self).fields_get(fields,attributes)
         for field in fields_to_hide:
-            res[field]['searchable'] = False
+            if field in res:
+                res[field]['searchable'] = False
         return res

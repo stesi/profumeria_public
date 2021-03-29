@@ -16,6 +16,7 @@ class ProductTemplate(models.Model):
         fields_to_hide = ['brand']
         res = super(ProductTemplate, self).fields_get(fields,attributes)
         for field in fields_to_hide:
-            res[field]['searchable'] = False
-            res[field]['sortable'] = False
+            if field in res:
+                res[field]['searchable'] = False
+                res[field]['sortable'] = False
         return res
