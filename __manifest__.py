@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "STeSI Import Profumeria Public",
+    'name': "STeSI Profumeria Public",
 
     'summary': """
-       Import Order for Profumeria""",
+       Improvements for Profumeria""",
 
-    'category': 'MRP',
+    'category': 'General',
 
     'description': """
         Long description of module's purpose
