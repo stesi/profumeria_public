@@ -17,13 +17,23 @@ class FilterWebsiteSale(WebsiteSale):
         if search:
             for srch in search.split(" "):
                 subdomains = [
-                    [('name', 'ilike', srch)],
-                    [('product_variant_ids.default_code', 'ilike', srch)]
+                    [('name', '=ilike', srch)],
+                    [('product_variant_ids.default_code', '=ilike', srch)]
                 ]
                 if search_in_description:
-                    subdomains.append([('description', 'ilike', srch)])
-                    subdomains.append([('description_sale', 'ilike', srch)])
-                    subdomains.append([('website_description', 'ilike', srch)])
+                    subdomains.append([('name', '=ilike', "% " + srch + " %")]),
+                    subdomains.append([('name', '=ilike', "% " + srch + " %")]),
+                    subdomains.append([('name', '=ilike', "% " + srch + " %")]),
+                    subdomains.append([('name', '=ilike', "% " + srch + " %")]),
+                    subdomains.append([('brand', '=ilike', "% " + srch + " %")]),
+                    subdomains.append([('brand', '=ilike', "% " + srch + " %")]),
+                    subdomains.append([('brand', '=ilike', "% " + srch + " %")]),
+                    subdomains.append([('brand', '=ilike', "% " + srch + " %")]),
+                    subdomains.append([('website_description', '=ilike', "% "+srch+" %")])
+                    subdomains.append([('website_description', '=ilike',  srch+" %")])
+                    subdomains.append([('website_description', '=ilike',  srch)])
+                    subdomains.append([('website_description', '=ilike',  "% "+srch)])
+                    subdomains.append([('website_id','=',request.website.id),('label_line_ids.label', '=ilike',  srch)])
                 domains.append(expression.OR(subdomains))
 
         if category:
