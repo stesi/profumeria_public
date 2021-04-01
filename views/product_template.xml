@@ -17,6 +17,14 @@
             <xpath expr="//field[@name='default_code']" position="after">
                 <field name="brand" optional="show"/>
             </xpath>
+            <xpath expr="//field[@name='uom_id']" position="after">
+                <field name="is_published" optional="hide"/>
+                <field name="alternative_product_ids" widget="many2many_tags" optional="hide"/>
+                <field name="accessory_product_ids" widget="many2many_tags" optional="hide"/>
+                <field name="inventory_availability" optional="hide"/>
+                <field name="available_threshold" optional="hide"/>
+                <field name="website_description" optional="hide"/>
+            </xpath>
         </field>
     </record>
 
@@ -26,6 +34,14 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
                 <field name="brand"/>
+            </xpath>
+            <xpath expr="//field[@name='uom_id']" position="after">
+                <field name="is_published" optional="hide"/>
+                <field name="alternative_product_ids" widget="many2many_tags" optional="hide"/>
+                <field name="accessory_product_ids" widget="many2many_tags" optional="hide"/>
+                <field name="inventory_availability" optional="hide"/>
+                <field name="available_threshold" optional="hide"/>
+                <field name="website_description" optional="hide"/>
             </xpath>
         </field>
     </record>
