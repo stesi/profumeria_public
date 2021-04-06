@@ -59,12 +59,12 @@
                 <div class="o_wsale_products_item_title text-center">
                     <t t-if="product.public_categ_ids">
                         <h7 itemprop="category"><a title="Category"
-                                t-att-href="keep('/shop/category/%s' % slug(product.public_categ_ids[0]))"
-                                t-field="product.categ_id.name">Product Category</a></h7>
+                                                   t-att-href="keep('/shop/category/%s' % slug(product.public_categ_ids[0]))"
+                                                   t-field="product.categ_id.name">Product Category</a></h7>
                     </t>
                     <t t-else="">
                         <h7 itemprop="category"><a
-                                href="#"  title="Category"
+                                href="#" title="Category"
                                 t-field="product.categ_id.name">Product Category</a></h7>
                     </t>
                 </div>
@@ -72,9 +72,9 @@
 
             <xpath expr="//div[hasclass('o_wsale_product_information')]//div" position="before">
                 <div class="o_wsale_products_item_title text-center">
-                    <h7 itemprop="brand"><a  title="Brand"
-                            t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"
-                            t-field="product.brand">Product
+                    <h7 itemprop="brand"><a title="Brand"
+                                            t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"
+                                            t-field="product.brand">Product
                         Brand</a></h7>
                 </div>
             </xpath>
@@ -90,5 +90,18 @@
         <template id="remove_all_product" inherit_id="website_sale.products_categories">
             <xpath expr="//ul//li//a" position="replace"/>
         </template>
+
+<!--        <template id="add_review_before_footer" inherit_id="website.layout">-->
+<!--            <xpath expr="//div[@id='footer']" position="before">-->
+<!--                <div>-->
+<!--                    <div id="zoorate_widget_5395e015172e9326"></div><script type="text/javascript"> var-->
+<!--                    zoorate_widget_server = "widget.zoorate.com"; var zoorate_site_key =-->
+<!--                    "832012f14f7abf1c4e4a2e5bb0cfddcd";-->
+<!--                    var zoorate_widget_id = "5395e015172e9326";</script><script-->
+<!--                        src="//widget.zoorate.com/js/dynamic_v1.js"-->
+<!--                        type="text/javascript"></script>-->
+<!--                </div>-->
+<!--            </xpath>-->
+<!--        </template>-->
     </data>
 </odoo>
