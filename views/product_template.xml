@@ -6,6 +6,8 @@
             <xpath expr="(//group[@name='group_general']//field[@name])[last()]" position="after">
                 <field name="brand"/>
                 <field name="website_description"/>
+                <field name="product_variant_ids" invisible="1"/>
+                <field name="minimum_point"/>
             </xpath>
         </field>
     </record>

@@ -11,7 +11,7 @@ class ProductProduct(models.Model):
 
     reward_ids = fields.One2many('loyalty.reward', 'gift_product_id', string="Related Reward Program")
 
-    minimum_point = fields.Float(string='Minimum Point', compute='_compute_minimum_point')
+    minimum_point = fields.Float('Minimum Point', compute='_compute_minimum_point', store=True)
 
     @api.depends("reward_ids")
     def _compute_minimum_point(self):
