@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="profumeria_public_product_product" model="ir.ui.view">
+        <field name="name">profumeria.public.product.product</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='pos']" position="inside">
+                <group name="Loyalty">
+                    <field name="reward_ids" widget="many2many_tags"/>
+                    <field name="minimum_point"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
