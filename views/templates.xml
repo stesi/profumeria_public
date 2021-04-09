@@ -2,22 +2,31 @@
     <data>
         <template id="product_cat_brand" inherit_id="website_sale.product" name="product_cat_brand">
             <xpath expr="//h1[@itemprop='name']" position="before">
-                <h7 itemprop="brand"><a
-                        t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"
-                        t-field="product.brand">Product
-                    Brand</a></h7>
+                <h7 itemprop="brand">
+                    <a
+                            t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"
+                            t-field="product.brand">Product
+                        Brand
+                    </a>
+                </h7>
             </xpath>
 
             <xpath expr="//h1[@itemprop='name']" position="after">
                 <t t-if="product.public_categ_ids">
-                    <h7 itemprop="category"><a
-                            t-att-href="keep('/shop/category/%s' % slug(product.public_categ_ids[0]))"
-                            t-field="product.categ_id.name">Product Category</a></h7>
+                    <h7 itemprop="category">
+                        <a
+                                t-att-href="keep('/shop/category/%s' % slug(product.public_categ_ids[0]))"
+                                t-field="product.categ_id.name">Product Category
+                        </a>
+                    </h7>
                 </t>
                 <t t-else="">
-                    <h7 itemprop="category"><a
-                            href="#"
-                            t-field="product.categ_id.name">Product Category</a></h7>
+                    <h7 itemprop="category">
+                        <a
+                                href="#"
+                                t-field="product.categ_id.name">Product Category
+                        </a>
+                    </h7>
                 </t>
             </xpath>
         </template>
@@ -30,6 +39,9 @@
             <xpath expr="//header//div" position="attributes">
                 <attribute name="class"></attribute>
             </xpath>
+
+            <xpath expr="//div[hasclass('container')]//div[hasclass('row')]/div[last()]//t" position="replace"/>
+
             <!--            <xpath expr="//section[1]" position="before">-->
             <!--                <div class="text-left">-->
             <!--                    <div class="">-->
@@ -58,24 +70,33 @@
             <xpath expr="//div[hasclass('o_wsale_product_information')]//div//h6" position="after">
                 <div class="o_wsale_products_item_title text-center">
                     <t t-if="product.public_categ_ids">
-                        <h7 itemprop="category"><a title="Category"
-                                                   t-att-href="keep('/shop/category/%s' % slug(product.public_categ_ids[0]))"
-                                                   t-field="product.categ_id.name">Product Category</a></h7>
+                        <h7 itemprop="category">
+                            <a title="Category"
+                               t-att-href="keep('/shop/category/%s' % slug(product.public_categ_ids[0]))"
+                               t-field="product.categ_id.name">Product Category
+                            </a>
+                        </h7>
                     </t>
                     <t t-else="">
-                        <h7 itemprop="category"><a
-                                href="#" title="Category"
-                                t-field="product.categ_id.name">Product Category</a></h7>
+                        <h7 itemprop="category">
+                            <a
+                                    href="#" title="Category"
+                                    t-field="product.categ_id.name">Product Category
+                            </a>
+                        </h7>
                     </t>
                 </div>
             </xpath>
 
             <xpath expr="//div[hasclass('o_wsale_product_information')]//div" position="before">
                 <div class="o_wsale_products_item_title text-center">
-                    <h7 itemprop="brand"><a title="Brand"
-                                            t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"
-                                            t-field="product.brand">Product
-                        Brand</a></h7>
+                    <h7 itemprop="brand">
+                        <a title="Brand"
+                           t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"
+                           t-field="product.brand">Product
+                            Brand
+                        </a>
+                    </h7>
                 </div>
             </xpath>
             <xpath expr="//div[hasclass('o_wsale_product_information')]//a[@itemprop='name']" position="attributes">
