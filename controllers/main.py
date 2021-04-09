@@ -132,9 +132,9 @@ class FilterWebsiteSale(WebsiteSale):
         if search:
             for srch in search.split(" "):
                 subdomains = [
-                    [('name', '=ilike', "%"+srch+"%")],
-                    [('product_variant_ids.default_code', '=ilike', "%"+srch+"%")],
-                    [('brand', '=ilike', "%" + srch + "%")]
+                    [('name', 'ilike', srch)],
+                    [('product_variant_ids.default_code', 'ilike', srch)],
+                    [('brand', 'ilike', srch)]
                 ]
                 if search_in_description:
                     subdomains.append([('website_description', '=ilike', "% "+srch+" %")])
