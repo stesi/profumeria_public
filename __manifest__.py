@@ -27,13 +27,11 @@
         'security/ir.model.access.csv',
         'views/view_pos_order.xml',
         'views/product_template.xml',
-        'views/product_product.xml',
         'views/pos_order_view.xml',
         'views/purchase_order_view.xml',
         'views/sale_order_view.xml',
         'views/note_pos_order_view.xml',
         'views/stock_delivery_note.xml',
-        'views/res_partner_inherit_view_tree.xml',
         'views/templates.xml'
     ],
     # only loaded in demonstration mode
