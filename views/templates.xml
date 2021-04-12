@@ -1,5 +1,10 @@
 <odoo>
     <data>
+        <template id="remove_ribbon_label_product" inherit_id="theme_clarico.clarico_shop_products_label">
+            <xpath expr="//*[hasclass('oe_product_image')]//*[hasclass('te_ribbon-wrapper')]" position="attributes">
+                <attribute name="t-if">not request.httprequest.args.getlist('label')</attribute>
+            </xpath>
+        </template>
         <template id="product_cat_brand" inherit_id="website_sale.product" name="product_cat_brand">
             <xpath expr="//h1[@itemprop='name']" position="before">
                 <h7 itemprop="brand">
@@ -66,7 +71,9 @@
         <!--            </xpath>-->
         <!--        </template>-->
 
+
         <template id="product_shop_cat_brand" inherit_id="website_sale.products_item">
+
             <xpath expr="//div[hasclass('o_wsale_product_information')]//div//h6" position="after">
                 <div class="o_wsale_products_item_title text-center">
                     <t t-if="product.public_categ_ids">
@@ -123,6 +130,24 @@
                                 data-rvnum="undefined" style="width:100%;">
                         </div>
                     </center>
+                </div>
+            </xpath>
+        </template>
+
+        <!--        <template id="cart_summary_newsletter" inherit_id="website_sale.cart_summary">-->
+        <!--             <xpath expr="//div[hasclass('card')]" position="after">-->
+
+        <!--                      <t t-call="website_mass_mailing.s_newsletter_block"/>-->
+        <!--             </xpath>-->
+        <!--        </template>-->
+
+        <template id="payment_note" inherit_id="website_sale.payment" name="Payment Note">
+            <xpath expr="//div[@id='payment_method']" position="before">
+                <div id="sale_note">
+                    <h3>Add a note..</h3>
+                    <div class="card border-0">
+                        <input type="text" name="note"/>
+                    </div>
                 </div>
             </xpath>
         </template>
