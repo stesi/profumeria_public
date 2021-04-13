@@ -1,0 +1,26 @@
+<odoo>
+    <record id="product_label" model="ir.ui.view">
+        <field name="model">product.label</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group cols="2">
+                        <group>
+                            <field name="name"/>
+                            <field name="label_style"/>
+                        </group>
+                        <group>
+                            <field name="font_html_color"/>
+                            <field name="html_color"/>
+                        </group>
+                        <group col="2">
+                            <field name="activate_website_description" widget="boolean_toggle"/>
+                        </group>
+                        <field name="website_description" widget="html"
+                               attrs="{'readonly': [('activate_website_description', '=', False)]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

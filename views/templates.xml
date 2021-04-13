@@ -1,10 +1,18 @@
 <odoo>
     <data>
-        <template id="remove_ribbon_product" inherit_id="theme_clarico.clarico_shop_products_label" priority="24" active="True">
-            <xpath expr="//*[hasclass('oe_product_image')]//*[hasclass('te_ribbon-wrapper')]" position="attributes">
-                <attribute name="t-if">not request.httprequest.args.getlist('label')</attribute>
+        <!--        <template id="remove_ribbon_product" inherit_id="theme_clarico.clarico_shop_products_label" priority="30"-->
+        <!--                  active="True">-->
+        <!--            <xpath expr="//*[hasclass('oe_product_image')]//*[hasclass('te_ribbon-wrapper')]" position="attributes">-->
+        <!--                <attribute name="t-if">not request.httprequest.args.getlist('label')</attribute>-->
+        <!--            </xpath>-->
+        <!--        </template>-->
+
+        <template id="products" inherit_id="website_sale.products">
+            <xpath expr="//div[hasclass('o_wsale_products_grid_table_wrapper')]//table" position="before">
+                <span t-if="product_label.activate_website_description" t-raw="product_label.website_description"/>
             </xpath>
         </template>
+
         <template id="product_cat_brand" inherit_id="website_sale.product" name="product_cat_brand">
             <xpath expr="//h1[@itemprop='name']" position="before">
                 <h7 itemprop="brand">
@@ -141,15 +149,15 @@
         <!--             </xpath>-->
         <!--        </template>-->
 
-<!--        <template id="payment_note" inherit_id="website_sale.payment" name="Payment Note">-->
-<!--            <xpath expr="//div[@id='payment_method']" position="before">-->
-<!--                <div id="sale_note">-->
-<!--                    <h3>Add a note..</h3>-->
-<!--                    <div class="card border-0">-->
-<!--                        <input type="text" name="note"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </xpath>-->
-<!--        </template>-->
+        <!--        <template id="payment_note" inherit_id="website_sale.payment" name="Payment Note">-->
+        <!--            <xpath expr="//div[@id='payment_method']" position="before">-->
+        <!--                <div id="sale_note">-->
+        <!--                    <h3>Add a note..</h3>-->
+        <!--                    <div class="card border-0">-->
+        <!--                        <input type="text" name="note"/>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </xpath>-->
+        <!--        </template>-->
     </data>
 </odoo>

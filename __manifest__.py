@@ -32,7 +32,8 @@
         'views/sale_order_view.xml',
         'views/note_pos_order_view.xml',
         'views/stock_delivery_note.xml',
-        'views/templates.xml'
+        'views/templates.xml',
+        'views/product_label.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

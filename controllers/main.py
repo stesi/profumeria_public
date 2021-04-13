@@ -64,12 +64,14 @@ class FilterWebsiteSale(WebsiteSale):
         Product = request.env['product.template'].with_context(bin_size=True)
 
         label_list = request.httprequest.args.getlist('label')
+        product_label = False
+        product_label_line = []
 
-        if len(label_list) > 0:
-            product_label_line = []
+        if len(label_list) == 1:
             for label in label_list:
-                product_label_line = request.env['product.label.line'].search([('label.name', 'ilike', label)])
-            domain = domain + [('label_line_ids', 'in', product_label_line.ids)]
+                # product_label_line = request.env['product.label.line'].search([('label.name', 'ilike', label)])
+                product_label = request.env['product.label'].search([('name', 'ilike', label)], limit=1)
+            domain = domain + [('label_line_ids.label', '=', product_label.id)]
 
         search_product = Product.search(domain, order=self._get_search_order(post))
         website_domain = request.website.website_domain()
@@ -122,6 +124,7 @@ class FilterWebsiteSale(WebsiteSale):
             'keep': keep,
             'search_categories_ids': search_categories.ids,
             'layout_mode': layout_mode,
+            'product_label': product_label,
         }
         if category:
             values['main_object'] = category
