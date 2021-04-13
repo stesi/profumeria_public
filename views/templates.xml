@@ -9,7 +9,9 @@
 
         <template id="products" inherit_id="website_sale.products">
             <xpath expr="//div[hasclass('o_wsale_products_grid_table_wrapper')]//table" position="before">
-                <span t-if="product_label.activate_website_description" t-raw="product_label.website_description"/>
+                <t t-if="product_label">
+                    <span t-if="product_label.activate_website_description" t-raw="product_label.website_description"/>
+                </t>
             </xpath>
         </template>
 
