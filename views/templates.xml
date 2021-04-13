@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <template id="remove_ribbon_roduct" inherit_id="theme_clarico.clarico_shop_products_label" priority="24" active="True">
+        <template id="remove_ribbon_product" inherit_id="theme_clarico.clarico_shop_products_label" priority="24" active="True">
             <xpath expr="//*[hasclass('oe_product_image')]//*[hasclass('te_ribbon-wrapper')]" position="attributes">
                 <attribute name="t-if">not request.httprequest.args.getlist('label')</attribute>
             </xpath>
