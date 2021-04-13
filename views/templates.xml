@@ -1,11 +1,11 @@
 <odoo>
     <data>
-        <!--        <template id="remove_ribbon_product" inherit_id="theme_clarico.clarico_shop_products_label" priority="30"-->
-        <!--                  active="True">-->
-        <!--            <xpath expr="//*[hasclass('oe_product_image')]//*[hasclass('te_ribbon-wrapper')]" position="attributes">-->
-        <!--                <attribute name="t-if">not request.httprequest.args.getlist('label')</attribute>-->
-        <!--            </xpath>-->
-        <!--        </template>-->
+<!--        <template id="clarico_shop_products_label_kmnesklds" inherit_id="theme_clarico.clarico_shop_products_label" priority="30"-->
+<!--                  active="True">-->
+<!--            <xpath expr="//*[hasclass('oe_product_image')]//*[hasclass('te_ribbon-wrapper')]" position="attributes">-->
+<!--                <attribute name="t-if">not request.httprequest.args.getlist('label')</attribute>-->
+<!--            </xpath>-->
+<!--        </template>-->
 
         <template id="products" inherit_id="website_sale.products">
             <xpath expr="//div[hasclass('o_wsale_products_grid_table_wrapper')]//table" position="before">
