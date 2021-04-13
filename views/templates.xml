@@ -141,15 +141,15 @@
         <!--             </xpath>-->
         <!--        </template>-->
 
-        <template id="payment_note" inherit_id="website_sale.payment" name="Payment Note">
-            <xpath expr="//div[@id='payment_method']" position="before">
-                <div id="sale_note">
-                    <h3>Add a note..</h3>
-                    <div class="card border-0">
-                        <input type="text" name="note"/>
-                    </div>
-                </div>
-            </xpath>
-        </template>
+<!--        <template id="payment_note" inherit_id="website_sale.payment" name="Payment Note">-->
+<!--            <xpath expr="//div[@id='payment_method']" position="before">-->
+<!--                <div id="sale_note">-->
+<!--                    <h3>Add a note..</h3>-->
+<!--                    <div class="card border-0">-->
+<!--                        <input type="text" name="note"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </xpath>-->
+<!--        </template>-->
     </data>
 </odoo>
