@@ -21,7 +21,7 @@
     'version': '14.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['point_of_sale', 'base_automation', 'sale', 'purchase', 'point_of_sale','pos_margin', 'l10n_it_delivery_note', 'emipro_theme_base', 'theme_clarico'],
+    'depends': ['point_of_sale', 'base_automation', 'sale', 'purchase', 'point_of_sale','pos_margin', 'l10n_it_delivery_note', 'emipro_theme_base', 'theme_clarico','stesi_ldv'],
     # always loaded
     'data': [
         'security/ir.model.access.csv',
@@ -34,6 +34,7 @@
         'views/stock_delivery_note.xml',
         'views/templates.xml',
         'views/product_label.xml',
+        'views/account_payment_term.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
