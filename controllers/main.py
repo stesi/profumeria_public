@@ -7,10 +7,19 @@ from odoo.addons.website.controllers.main import QueryURL
 from odoo import fields, http, SUPERUSER_ID, tools, _
 from odoo.http import request
 from odoo.osv import expression
-from odoo.addons.website_sale.controllers.main import WebsiteSale, TableCompute
+from odoo.addons.website_sale.controllers.main import WebsiteSale, TableCompute, WebsiteSaleForm
 from odoo.addons.website_mass_mailing.controllers.main import MassMailController
 
 _logger = logging.getLogger(__name__)
+
+
+class WebsiteSaleFormProfumeria(WebsiteSaleForm):
+
+    @http.route('/website_form/shop.sale.order', type='http', auth="public", methods=['POST'], website=True)
+    def website_form_saleorder(self, **kwargs):
+        res = super(WebsiteSaleFormProfumeria, self).website_form_saleorder(**kwargs)
+
+        return res
 
 
 class FilterWebsiteSale(WebsiteSale):
