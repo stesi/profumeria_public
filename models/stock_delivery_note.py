@@ -6,7 +6,17 @@ class StockDeliveryNote(models.Model):
 
     payment_term_ids = fields.One2many('account.payment.term', compute="_compute_payment_term_ids")
 
+    margin = fields.Float(compute="_compute_margin", store=True)
+
     countersign = fields.Boolean(string="Countersign", compute='compute_countersign')
+
+    def compute_countersign(self):
+        for delivery in self:
+            payment_term_ids = delivery.sale_ids.mapped("wc_payment_gateway_id").filtered(lambda l: l.countersign == True)
+            if len(payment_term_ids) > 0:
+                delivery.countersign = True
+            else:
+                delivery.countersign = False
 
     total_prices = fields.Float(compute="_compute_total_prices", store=True)
 
@@ -20,13 +30,6 @@ class StockDeliveryNote(models.Model):
             else:
                 ddt.total_prices = 0
 
-    def compute_countersign(self):
-        for delivery in self:
-            payment_term_ids = delivery.sale_ids.mapped("payment_term_id").filtered(lambda l: l.countersign == True)
-            if len(payment_term_ids) > 0:
-                delivery.countersign = True
-            else:
-                delivery.countersign = False
 
     @api.depends("sale_ids")
     def _compute_payment_term_ids(self):
