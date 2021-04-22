@@ -1,0 +1,13 @@
+<odoo>
+
+     <record id="prof_public_res_parter_inherit_view_tree" model="ir.ui.view">
+        <field name="name">prof_public.res.partner.inherit.view.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="city" position="after">
+                <field name="last_purchase_date" widget="datetime" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>
