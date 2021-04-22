@@ -7,27 +7,36 @@
         <!--            </xpath>-->
         <!--        </template>-->
 
-<!--        <template id="extra_info" inherit_id="website_sale.extra_info">-->
-<!--            <xpath expr="//div[hasclass('s_website_form_field')]" position="after">-->
-<!--                <div class="form-group s_website_form_field col-12 s_website_form_custom">-->
-<!--                    <div>-->
-<!--                        <div class="checkbox">-->
-<!--                            <input type="checkbox" id='invoice_check' class="mr8"-->
-<!--                                   name='invoice_check'-->
-<!--                            />-->
-<!--                            <label>-->
-<!--                                I want the invoice-->
-<!--                            </label>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="row">-->
-<!--                        <input type="checkbox" id='invoice_check' class="mr8"-->
-<!--                               name='invoice_check'-->
-<!--                        />-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </xpath>-->
-<!--        </template>-->
+        <template id="extra_info" inherit_id="website_sale.extra_info">
+            <xpath expr="//div[hasclass('s_website_form_field')]" position="after">
+                <div class="form-group s_website_form_field col-12 s_website_form_custom">
+                    <div class="w-100"/>
+                    <div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id='invoice_check' class="mr8"
+                                       name='invoice_check'
+                                />
+                                I want the invoice
+                            </label>
+                        </div>
+                    </div>
+                    <div class="w-100"/>
+                    <div class="row" id="show_invoice">
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id='fiscal_code_iva'
+                                   name='fiscal_code_iva' placeholder="Tax code or VAT number"
+                            />
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id='pec_address'
+                                   name='pec_address' placeholder="PEC address or SDI code"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
 
         <template id="assets_frontend" inherit_id="web.assets_frontend">
             <xpath expr="//script[last()]" position="after">
@@ -47,6 +56,18 @@
                     console.log("Checkbox is unchecked.");
                     el.attr('style', 'pointer-events: none;');
                     div_el.attr('style', 'visibility: visible;');
+                    }
+                    });
+
+                    var div_show_invoice = $('#show_invoice');
+                    div_show_invoice.attr('style', 'visibility: hidden;');
+
+                    $('input[id="invoice_check"]').click(function(){
+                    if($(this).prop("checked") == true){
+                    div_show_invoice.attr('style', 'visibility: visible;');
+                    }
+                    else if($(this).prop("checked") == false){
+                    div_show_invoice.attr('style', 'visibility: hidden;');
                     }
                     });
                     });
