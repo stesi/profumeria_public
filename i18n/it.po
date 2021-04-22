@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-16 10:28+0000\n"
-"PO-Revision-Date: 2021-04-16 10:28+0000\n"
+"POT-Creation-Date: 2021-04-22 15:31+0000\n"
+"PO-Revision-Date: 2021-04-22 15:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -42,9 +42,12 @@ msgid "Category"
 msgstr "Categoria"
 
 #. module: profumeria_public
-#: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term__countersign
+#: model:ir.model,name:profumeria_public.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__countersign
-#: model_terms:ir.ui.view,arch_db:profumeria_public.stesi_ldv_view_payment_term_form
 msgid "Countersign"
 msgstr "Contrassegno"
 
@@ -74,7 +77,6 @@ msgid "Delivery Note Line"
 msgstr "Riga DdT"
 
 #. module: profumeria_public
-#: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_choose_delivery_carrier__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line__display_name
@@ -83,6 +85,7 @@ msgstr "Riga DdT"
 #: model:ir.model.fields,field_description:profumeria_public.field_product_template__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__display_name
@@ -91,7 +94,6 @@ msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: profumeria_public
-#: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term__id
 #: model:ir.model.fields,field_description:profumeria_public.field_choose_delivery_carrier__id
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order__id
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line__id
@@ -100,6 +102,7 @@ msgstr "Nome visualizzato"
 #: model:ir.model.fields,field_description:profumeria_public.field_product_template__id
 #: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__id
 #: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line__id
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner__id
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order__id
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__id
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__id
@@ -120,7 +123,6 @@ msgstr ""
 "Numero articolo internazionale usato per l'identificazione del prodotto"
 
 #. module: profumeria_public
-#: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_choose_delivery_carrier____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line____last_update
@@ -129,12 +131,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:profumeria_public.field_product_template____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_line____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner__last_purchase_date
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users__last_purchase_date
+msgid "Last Purchase Date"
+msgstr "Ultimo Acquisto"
 
 #. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__write_uid
@@ -147,6 +156,11 @@ msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
 #. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__margin
+msgid "Margin"
+msgstr "Margine"
+
+#. module: profumeria_public
 #: model_terms:ir.ui.view,arch_db:profumeria_public.view_pos_order_search
 msgid "Orders Of The Day"
 msgstr "Ordini Del Giorno"
@@ -154,12 +168,7 @@ msgstr "Ordini Del Giorno"
 #. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__payment_term_ids
 msgid "Payment Term"
-msgstr ""
-
-#. module: profumeria_public
-#: model:ir.model,name:profumeria_public.model_account_payment_term
-msgid "Payment Terms"
-msgstr "Termini di pagamento"
+msgstr "Metodi Pagamento"
 
 #. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order__config_id
@@ -175,6 +184,12 @@ msgstr "Righe ordine del punto vendita"
 #: model:ir.model,name:profumeria_public.model_pos_order
 msgid "Point of Sale Orders"
 msgstr "Ordini punto vendita"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner__pos_ids
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users__pos_ids
+msgid "Pos"
+msgstr ""
 
 #. module: profumeria_public
 #: model:ir.model,name:profumeria_public.model_product_product
@@ -222,6 +237,12 @@ msgstr "Riga ordine di acquisto"
 #: model:ir.ui.menu,name:profumeria_public.purchase_report_menu
 msgid "Reporting"
 msgstr "Rendicontazione"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner__sale_ids
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users__sale_ids
+msgid "Sale"
+msgstr ""
 
 #. module: profumeria_public
 #: model:ir.model,name:profumeria_public.model_sale_order
