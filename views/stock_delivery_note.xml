@@ -8,8 +8,8 @@
             <field name="inherit_id" ref="l10n_it_delivery_note.stock_delivery_note_tree_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_id']" position="after">
-                    <field name="margin" optional="show"/>
                     <field name="payment_term_ids" widget="many2many_tags" optional="show"/>
+                    <field name="total_prices" widget="monetary" optional="show" options="{'currency_field': 'currency_id'}"/>
                 </xpath>
             </field>
         </record>
@@ -43,9 +43,8 @@
                             <th width="16%"></th>
                             <th width="16%"></th>
                             <th width="16%">Total Price:</th>
-                            <th width="16%"><t
-                                    t-esc="'{0:,.2f}'.format(float(sum(l.price_unit * l.product_qty for l in doc.line_ids)))"/>
-                                €</th>
+                            <th width="16%"><span t-field="doc.total_prices"
+                                                  t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/></th>
                         </tr>
                     </thead>
                 </table>

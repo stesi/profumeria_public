@@ -1,23 +1,102 @@
 <odoo>
     <data>
-<!--        <template id="clarico_shop_products_label_kmnesklds" inherit_id="theme_clarico.clarico_shop_products_label" priority="30"-->
-<!--                  active="True">-->
-<!--            <xpath expr="//*[hasclass('oe_product_image')]//*[hasclass('te_ribbon-wrapper')]" position="attributes">-->
-<!--                <attribute name="t-if">not request.httprequest.args.getlist('label')</attribute>-->
-<!--            </xpath>-->
-<!--        </template>-->
+        <!--        <template id="clarico_shop_products_label_kmnesklds" inherit_id="theme_clarico.clarico_shop_products_label" priority="30"-->
+        <!--                  active="True">-->
+        <!--            <xpath expr="//*[hasclass('oe_product_image')]//*[hasclass('te_ribbon-wrapper')]" position="attributes">-->
+        <!--                <attribute name="t-if">not request.httprequest.args.getlist('label')</attribute>-->
+        <!--            </xpath>-->
+        <!--        </template>-->
+
+        <template id="assets_frontend" inherit_id="web.assets_frontend">
+            <xpath expr="script[last()]" position="after">
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                    var el = document.getElementById('o_payment_form_pay');
+                    var div_el = document.getElementById('text_info_obligatory');
+                    el.setAttribute('style', 'pointer-events: none;');
+                    div_el.style.visibility='visible';
+                    $('input[type="checkbox"]').click(function(){
+                    if($(this).prop("checked") == true){
+                    console.log("Checkbox is checked.");
+                    el.setAttribute('style', 'pointer-events: auto;');
+                    div_el.style.visibility='hidden';
+                    }
+                    else if($(this).prop("checked") == false){
+                    console.log("Checkbox is unchecked.");
+                    el.setAttribute('style', 'pointer-events: none;');
+                    div_el.style.visibility='visible';
+                    }
+                    });
+                    });
+                </script>
+            </xpath>
+        </template>
+
+        <template id="payment_tokens_list" inherit_id="payment.payment_tokens_list">
+            <xpath expr="//div[hasclass('card')]/t[last()]" position="after">
+                <div class="w-100"/>
+                <div class="col-lg-12">
+                    <div class="checkbox" style="margin-bottom: 0px !important;">
+                        <input type="checkbox" id='terms_and_conditions' class="mr8"
+                               name='terms_and_conditions'
+                        />
+                        <label>
+                            I declare to accept the <a style="color: #007bff;" role="button"
+                                                       href='/condizioni-di-vendita'>conditions of sale</a> and
+                            the terms indicated in <a style="color: #007bff;" role="button"
+                                                      href='/informativa-sulla-privacy'>the privacy policy</a>
+                        </label>
+                    </div>
+                    <div class="text-danger col-lg-10" id="text_info_obligatory">
+                        * This field is obligatory, You must agree before pay.
+                    </div>
+                </div>
+            </xpath>
+        </template>
 
         <template id="products" inherit_id="website_sale.products">
             <xpath expr="//div[hasclass('o_wsale_products_grid_table_wrapper')]//table" position="before">
                 <t t-if="product_label">
                     <span t-if="product_label.activate_website_description" t-raw="product_label.website_description"/>
                 </t>
+                <t t-if="len(attrib_values) == 1 and not product_label">
+                    <t t-set="brand_ept" t-value="request.env['product.brand.ept'].browse(attrib_values[0][1])"/>
+                    <span t-if="brand_ept.activate_website_description" t-raw="brand_ept.website_description"/>
+                </t>
+            </xpath>
+        </template>
+
+        <template id="address_ept" inherit_id="website_sale.address">
+            <xpath expr="//div[hasclass('oe_cart')]/div/t[3]" position="after">
+                <div t-if="not request.session.uid">
+                    <h5>New User? We recommend you to <a style="color: #007bff;" role="button"
+                                                         href='/web/signup?redirect=/shop/checkout'>sign up</a> for a
+                        better shopping experience</h5>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[hasclass('form-row')]/t[last()]" position="before">
+                <div class="w-100"/>
+                <div class="col-lg-12">
+                    <div class="checkbox" style="margin-bottom: 0px !important;">
+                        <label>
+                            <input type="checkbox" id='newsletter_registration' class="mr8"
+                                   name='newsletter_registration' value="1"
+                                   checked='checked'
+                                   t-if="request.env['mailing.contact'].sudo().search([('email', '=', 'email' in checkout and checkout['email'])])"/>
+                            <input type="checkbox" id='newsletter_registration' class="mr8"
+                                   name='newsletter_registration'
+                                   t-if="not request.env['mailing.contact'].sudo().search([('email', '=', 'email' in checkout and checkout['email'])])"/>
+                            Subscribe to the Newsletter to receive Product updates
+                        </label>
+                    </div>
+                </div>
             </xpath>
         </template>
 
         <template id="product_cat_brand" inherit_id="website_sale.product" name="product_cat_brand">
             <xpath expr="//h1[@itemprop='name']" position="before">
-                <h7 itemprop="brand">
+                <h7 itemprop="brand" t-if="product.product_brand_ept_id.id">
                     <a
                             t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"
                             t-field="product.brand">Product
@@ -106,7 +185,7 @@
             </xpath>
 
             <xpath expr="//div[hasclass('o_wsale_product_information')]//div" position="before">
-                <div class="o_wsale_products_item_title text-center">
+                <div class="o_wsale_products_item_title text-center" t-if="product.product_brand_ept_id.id">
                     <h7 itemprop="brand">
                         <a title="Brand"
                            t-attf-href="/shop?search=&amp;attrib=0-#{ product.product_brand_ept_id.id }"

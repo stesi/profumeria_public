@@ -34,7 +34,8 @@
         'views/stock_delivery_note.xml',
         'views/templates.xml',
         'views/product_label.xml',
-        'views/res_partner.xml'
+        'views/res_partner.xml',
+        'views/product_brand_ept.xml'
         #'views/account_payment_term.xml'
     ],
     # only loaded in demonstration mode

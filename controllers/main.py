@@ -8,6 +8,7 @@ from odoo import fields, http, SUPERUSER_ID, tools, _
 from odoo.http import request
 from odoo.osv import expression
 from odoo.addons.website_sale.controllers.main import WebsiteSale, TableCompute
+from odoo.addons.website_mass_mailing.controllers.main import MassMailController
 
 _logger = logging.getLogger(__name__)
 
@@ -140,11 +141,12 @@ class FilterWebsiteSale(WebsiteSale):
                     [('brand', 'ilike', srch)]
                 ]
                 if search_in_description:
-                    subdomains.append([('website_description', '=ilike', "% "+srch+" %")])
-                    subdomains.append([('website_description', '=ilike',  srch+" %")])
-                    subdomains.append([('website_description', '=ilike',  srch)])
-                    subdomains.append([('website_description', '=ilike',  "% "+srch)])
-                    subdomains.append([('website_id','=',request.website.id),('label_line_ids.label', '=ilike',  srch)])
+                    subdomains.append([('website_description', '=ilike', "% " + srch + " %")])
+                    subdomains.append([('website_description', '=ilike', srch + " %")])
+                    subdomains.append([('website_description', '=ilike', srch)])
+                    subdomains.append([('website_description', '=ilike', "% " + srch)])
+                    subdomains.append(
+                        [('website_id', '=', request.website.id), ('label_line_ids.label', '=ilike', srch)])
                 domains.append(expression.OR(subdomains))
 
         if category:
@@ -206,3 +208,12 @@ class FilterWebsiteSale(WebsiteSale):
                     ids.append(value[1])
                     domain += [('product_brand_ept_id.id', 'in', ids)]
         return domain
+
+    @http.route(['/shop/address'], type='http', methods=['GET', 'POST'], auth="public", website=True, sitemap=False)
+    def address(self, **kw):
+        res = super(FilterWebsiteSale, self).address(**kw)
+        if kw.get("newsletter_registration") and kw.get("email"):
+            MassMailController.subscribe(self, 1, str(kw.get("email")))
+        elif not kw.get("newsletter_registration"):
+            request.env['mailing.contact'].sudo().search([('email', '=', str(kw.get("email")))], limit=1).unlink()
+        return res
