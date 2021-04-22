@@ -8,6 +8,7 @@
             <field name="inherit_id" ref="l10n_it_delivery_note.stock_delivery_note_tree_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="margin" optional="show"/>
                     <field name="payment_term_ids" widget="many2many_tags" optional="show"/>
                     <field name="total_prices" widget="monetary" optional="show" options="{'currency_field': 'currency_id'}"/>
                 </xpath>
