@@ -8,23 +8,23 @@
         <!--        </template>-->
 
         <template id="assets_frontend" inherit_id="web.assets_frontend">
-            <xpath expr="script[last()]" position="after">
+            <xpath expr="//script[last()]" position="after">
                 <script type="text/javascript">
                     $(document).ready(function(){
-                    var el = document.getElementById('o_payment_form_pay');
-                    var div_el = document.getElementById('text_info_obligatory');
-                    el.setAttribute('style', 'pointer-events: none;');
-                    div_el.style.visibility='visible';
-                    $('input[type="checkbox"]').click(function(){
+                    var el = $('#o_payment_form_pay');
+                    var div_el = $('#text_info_obligatory');
+                    el.attr('style', 'pointer-events: none;');
+                    div_el.attr('style', 'visibility: visible;');
+                    $('input[id="terms_and_conditions"]').click(function(){
                     if($(this).prop("checked") == true){
                     console.log("Checkbox is checked.");
-                    el.setAttribute('style', 'pointer-events: auto;');
-                    div_el.style.visibility='hidden';
+                    el.attr('style', 'pointer-events: auto;');
+                    div_el.attr('style', 'visibility: hidden;');
                     }
                     else if($(this).prop("checked") == false){
                     console.log("Checkbox is unchecked.");
-                    el.setAttribute('style', 'pointer-events: none;');
-                    div_el.style.visibility='visible';
+                    el.attr('style', 'pointer-events: none;');
+                    div_el.attr('style', 'visibility: visible;');
                     }
                     });
                     });
