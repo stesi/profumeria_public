@@ -7,22 +7,27 @@
         <!--            </xpath>-->
         <!--        </template>-->
 
-        <template id="extra_info" inherit_id="website_sale.extra_info">
-            <xpath expr="//div[hasclass('s_website_form_field')]" position="after">
-                <div class="form-group s_website_form_field col-12 s_website_form_custom">
-                    <div class="col-lg-12">
-                        <div class="checkbox">
-                            <input type="checkbox" id='invoice_check' class="mr8"
-                                   name='invoice_check'
-                            />
-                            <label>
-                                I want the invoice
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </xpath>
-        </template>
+<!--        <template id="extra_info" inherit_id="website_sale.extra_info">-->
+<!--            <xpath expr="//div[hasclass('s_website_form_field')]" position="after">-->
+<!--                <div class="form-group s_website_form_field col-12 s_website_form_custom">-->
+<!--                    <div>-->
+<!--                        <div class="checkbox">-->
+<!--                            <input type="checkbox" id='invoice_check' class="mr8"-->
+<!--                                   name='invoice_check'-->
+<!--                            />-->
+<!--                            <label>-->
+<!--                                I want the invoice-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <input type="checkbox" id='invoice_check' class="mr8"-->
+<!--                               name='invoice_check'-->
+<!--                        />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </xpath>-->
+<!--        </template>-->
 
         <template id="assets_frontend" inherit_id="web.assets_frontend">
             <xpath expr="//script[last()]" position="after">
