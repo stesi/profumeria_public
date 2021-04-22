@@ -8,6 +8,14 @@ class StockDeliveryNote(models.Model):
 
     margin = fields.Float(compute="_compute_margin", store=True)
 
+    @api.depends("sale_ids")
+    def _compute_margin(self):
+        for ddt in self:
+            ddt.margin = 0
+            for sale in ddt.sale_ids:
+                ddt.margin += sale.margin
+
+
     countersign = fields.Boolean(string="Countersign", compute='compute_countersign')
 
     def compute_countersign(self):
