@@ -7,6 +7,9 @@
         <field name="arch" type="xml">
             <field name="city" position="after">
                 <field name="last_purchase_date" widget="datetime" optional="hide"/>
+                <field name="number_of_completed_pos_ids" optional="hide"/>
+                <field name="number_of_completed_sale_ids" optional="hide"/>
+                <field name="amount_total" optional="hide"/>
             </field>
         </field>
     </record>

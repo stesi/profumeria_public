@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-22 15:31+0000\n"
-"PO-Revision-Date: 2021-04-22 15:31+0000\n"
+"POT-Creation-Date: 2021-04-23 07:50+0000\n"
+"PO-Revision-Date: 2021-04-23 07:50+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.payment_tokens_list
+msgid "* This field is obligatory, You must agree before pay."
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_product_brand_ept__activate_website_description
 #: model:ir.model.fields,field_description:profumeria_public.field_product_label__activate_website_description
 msgid "Activate Website Description"
 msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner__amount_total
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users__amount_total
+msgid "Amount Total"
+msgstr "Totale"
 
 #. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__product_barcode
@@ -47,6 +59,7 @@ msgid "Contact"
 msgstr "Contatto"
 
 #. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term__countersign
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__countersign
 msgid "Countersign"
 msgstr "Contrassegno"
@@ -60,6 +73,11 @@ msgstr "Creato da"
 #: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__create_date
 msgid "Created on"
 msgstr "Creato il"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__currency_id
+msgid "Currency"
+msgstr ""
 
 #. module: profumeria_public
 #: model:ir.model,name:profumeria_public.model_choose_delivery_carrier
@@ -77,9 +95,11 @@ msgid "Delivery Note Line"
 msgstr "Riga DdT"
 
 #. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_choose_delivery_carrier__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_product_brand_ept__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_product_label__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_product_product__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_product_template__display_name
@@ -94,9 +114,21 @@ msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.payment_tokens_list
+msgid "I declare to accept the"
+msgstr ""
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.extra_info
+msgid "I want the invoice"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term__id
 #: model:ir.model.fields,field_description:profumeria_public.field_choose_delivery_carrier__id
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order__id
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line__id
+#: model:ir.model.fields,field_description:profumeria_public.field_product_brand_ept__id
 #: model:ir.model.fields,field_description:profumeria_public.field_product_label__id
 #: model:ir.model.fields,field_description:profumeria_public.field_product_product__id
 #: model:ir.model.fields,field_description:profumeria_public.field_product_template__id
@@ -123,9 +155,11 @@ msgstr ""
 "Numero articolo internazionale usato per l'identificazione del prodotto"
 
 #. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_choose_delivery_carrier____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_product_brand_ept____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_product_label____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_product_product____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_product_template____last_update
@@ -161,14 +195,41 @@ msgid "Margin"
 msgstr "Margine"
 
 #. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.address_ept
+msgid "New User? We recommend you to"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner__number_of_completed_pos_ids
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users__number_of_completed_pos_ids
+msgid "Number of Pos Orders"
+msgstr "Vendite al banco"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner__number_of_completed_sale_ids
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users__number_of_completed_sale_ids
+msgid "Number of Sale Orders"
+msgstr "Vendite Web"
+
+#. module: profumeria_public
 #: model_terms:ir.ui.view,arch_db:profumeria_public.view_pos_order_search
 msgid "Orders Of The Day"
 msgstr "Ordini Del Giorno"
 
 #. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.extra_info
+msgid "PEC address or SDI code"
+msgstr ""
+
+#. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__payment_term_ids
 msgid "Payment Term"
-msgstr "Metodi Pagamento"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_account_payment_term
+msgid "Payment Terms"
+msgstr "Termini di pagamento"
 
 #. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order__config_id
@@ -208,6 +269,11 @@ msgstr ""
 msgid ""
 "Product\n"
 "                        Brand"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_product_brand_ept
+msgid "Product Brand"
 msgstr ""
 
 #. module: profumeria_public
@@ -260,6 +326,16 @@ msgid "Stores"
 msgstr "Negozi"
 
 #. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.address_ept
+msgid "Subscribe to the Newsletter to receive Product updates"
+msgstr ""
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.extra_info
+msgid "Tax code or VAT number"
+msgstr ""
+
+#. module: profumeria_public
 #: model:ir.model.fields,help:profumeria_public.field_pos_order__config_id
 msgid "The physical point of sale you will use."
 msgstr "Il punto vendita fisico che verrà utilizzato."
@@ -270,6 +346,47 @@ msgid "Total Price:"
 msgstr "Prezzo Totale:"
 
 #. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__total_prices
+msgid "Total Prices"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,help:profumeria_public.field_stock_delivery_note__currency_id
+msgid "Utility field to express amount currency"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_product_brand_ept__website_description
 #: model:ir.model.fields,field_description:profumeria_public.field_product_label__website_description
+#: model_terms:ir.ui.view,arch_db:profumeria_public.product_brand_ept_form_descrip
 msgid "Website Description"
+msgstr ""
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.payment_tokens_list
+msgid ""
+"and\n"
+"                            the terms indicated in"
+msgstr ""
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.payment_tokens_list
+msgid "conditions of sale"
+msgstr ""
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.address_ept
+msgid ""
+"for a\n"
+"                        better shopping experience"
+msgstr ""
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.address_ept
+msgid "sign up"
+msgstr ""
+
+#. module: profumeria_public
+#: model_terms:ir.ui.view,arch_db:profumeria_public.payment_tokens_list
+msgid "the privacy policy"
 msgstr ""
