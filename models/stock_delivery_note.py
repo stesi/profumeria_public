@@ -20,11 +20,17 @@ class StockDeliveryNote(models.Model):
 
     def compute_countersign(self):
         for delivery in self:
-            payment_term_ids = delivery.sale_ids.mapped("wc_payment_gateway_id").filtered(lambda l: l.countersign == True)
-            if len(payment_term_ids) > 0:
+            wc_payment_gateway_id = delivery.sale_ids.mapped("wc_payment_gateway_id").filtered(lambda l: l.countersign == True)
+            if len(wc_payment_gateway_id) > 0:
                 delivery.countersign = True
             else:
                 delivery.countersign = False
+
+            if delivery.countersign == False:
+                if len(delivery.payment_term_ids.filtered(lambda l: l.countersign == True)) > 0:
+                    delivery.countersign = True
+                else:
+                    delivery.countersign = False
 
     total_prices = fields.Float(compute="_compute_total_prices", store=True)
 
