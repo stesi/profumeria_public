@@ -116,7 +116,7 @@ msgstr "Nome visualizzato"
 #. module: profumeria_public
 #: model_terms:ir.ui.view,arch_db:profumeria_public.payment_tokens_list
 msgid "I declare to accept the"
-msgstr "Dichiaro di accettare i"
+msgstr "Dichiaro di accettare le"
 
 #. module: profumeria_public
 #: model_terms:ir.ui.view,arch_db:profumeria_public.extra_info
@@ -373,7 +373,7 @@ msgid ""
 "                            the terms indicated in"
 msgstr ""
 "e\n"
-"                            i termini indicati in"
+"                            i termini indicati nell"
 
 #. module: profumeria_public
 #: model_terms:ir.ui.view,arch_db:profumeria_public.payment_tokens_list
@@ -397,4 +397,4 @@ msgstr "iscriverti"
 #. module: profumeria_public
 #: model_terms:ir.ui.view,arch_db:profumeria_public.payment_tokens_list
 msgid "the privacy policy"
-msgstr "l'informativa sulla privacy"
+msgstr "informativa sulla privacy"
