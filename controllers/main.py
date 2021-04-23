@@ -18,7 +18,18 @@ class WebsiteSaleFormProfumeria(WebsiteSaleForm):
     @http.route('/website_form/shop.sale.order', type='http', auth="public", methods=['POST'], website=True)
     def website_form_saleorder(self, **kwargs):
         res = super(WebsiteSaleFormProfumeria, self).website_form_saleorder(**kwargs)
+        order = request.website.sale_get_order()
 
+        if order and kwargs.get("invoice_check") == 'on':
+            # if len(str(kwargs.get("fiscal_code_iva"))) > 4 and len(str(kwargs.get("pec_address"))) > 4:
+            #     body = '<h3> Partner request invoice, Tax/Vat: **'+ str(kwargs.get("fiscal_code_iva"))[2:-2] + '** Pec/SDI: **' + str(kwargs.get("pec_address"))[2:-2] + '**'+'</h3>'
+            # else:
+            #     body = '<h3>Partner request invoice</h3>'
+            # order.with_context(mail_create_nosubscribe=True).message_post(body=body)
+            order.update({
+                'tax_vat_number': str(kwargs.get("fiscal_code_iva")),
+                'pec_sdi_code': str(kwargs.get("pec_address"))
+            })
         return res
 
 

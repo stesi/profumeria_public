@@ -6,6 +6,9 @@ from odoo import fields, models, api
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    tax_vat_number = fields.Char()
+    pec_sdi_code = fields.Char()
+
     def remove_tax_from_delivery(self):
         product_delivery = []
         for delivery in self.env['delivery.carrier'].search([]):

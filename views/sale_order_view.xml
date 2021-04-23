@@ -21,6 +21,10 @@
                 <xpath expr="//page[@name='order_lines']//tree//field[@name='name']" position="before">
                     <field name="product_barcode"/>
                 </xpath>
+                <xpath expr="//page[@name='other_information']//group[@name='sale_info']" position="inside">
+                    <field name="tax_vat_number"/>
+                    <field name="pec_sdi_code"/>
+                </xpath>
             </field>
         </record>
     </data>
