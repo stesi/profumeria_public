@@ -25,6 +25,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/base_automation.xml',
         'views/view_pos_order.xml',
         'views/product_template.xml',
         'views/pos_order_view.xml',
@@ -36,7 +37,8 @@
         'views/product_label.xml',
         'views/res_partner.xml',
         'views/product_brand_ept.xml',
-        'views/account_payment_term.xml'
+        'views/account_payment_term.xml',
+        'views/payment_acquirer.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
