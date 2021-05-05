@@ -10,4 +10,20 @@
             </xpath>
         </field>
     </record>
+
+    <record id="payment_acquirer_view_form_inherit_transfer_msg" model="ir.ui.view">
+        <field name="inherit_id" ref="payment_transfer.payment_acquirer_view_form_inherit_transfer"/>
+        <field name="model">payment.acquirer</field>
+        <field name="arch" type="xml">
+            <field name="pre_msg" position="attributes">
+                <attribute name="attrs"></attribute>
+            </field>
+            <field name="done_msg" position="attributes">
+                <attribute name="attrs"></attribute>
+            </field>
+            <field name="cancel_msg" position="attributes">
+                <attribute name="attrs"></attribute>
+            </field>
+        </field>
+    </record>
 </odoo>
