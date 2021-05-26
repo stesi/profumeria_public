@@ -32,9 +32,9 @@ class AuthSignupHomeProfumeria(AuthSignupHome):
             if qcontext.get("date_of_birth"):
                 date = datetime.strptime(str(qcontext.get("date_of_birth")), '%Y-%m-%d')
                 if user:
-                    user.update({'birthday': date})
+                    user.sudo().update({'birthday': date})
                 if partner:
-                    partner.update({'date': date})
+                    partner.sudo().update({'date': date})
         return res
 
 
