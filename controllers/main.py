@@ -29,6 +29,9 @@ class AuthSignupHomeProfumeria(AuthSignupHome):
             partner = request.env['res.partner'].sudo().search(
                 [('email', '=', qcontext.get("login")), ('name', '=', qcontext.get("name"))])
 
+            print(qcontext.get("login"))
+            print(qcontext.get("name"))
+            print(qcontext.get("date_of_birth"))
             if qcontext.get("date_of_birth"):
                 date = datetime.strptime(str(qcontext.get("date_of_birth")), '%Y-%m-%d')
                 if user:
