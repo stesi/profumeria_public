@@ -5,12 +5,37 @@ from werkzeug.exceptions import NotFound
 from odoo.addons.http_routing.models.ir_http import slug
 from odoo.addons.website.controllers.main import QueryURL
 from odoo import fields, http, SUPERUSER_ID, tools, _
+from odoo.exceptions import UserError
 from odoo.http import request
 from odoo.osv import expression
 from odoo.addons.website_sale.controllers.main import WebsiteSale, TableCompute, WebsiteSaleForm
 from odoo.addons.website_mass_mailing.controllers.main import MassMailController
+from odoo.addons.auth_signup.controllers.main import AuthSignupHome
+from odoo.tools import datetime
 
 _logger = logging.getLogger(__name__)
+
+
+class AuthSignupHomeProfumeria(AuthSignupHome):
+
+    @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False)
+    def web_auth_signup(self, *args, **kw):
+        res = super(AuthSignupHomeProfumeria, self).web_auth_signup(*args, **kw)
+        qcontext = self.get_auth_signup_qcontext()
+        values = { key: qcontext.get(key) for key in ('login', 'name')}
+        if values:
+            user = request.env['res.users'].sudo().search(
+                [('email', '=', qcontext.get("login")), ('name', '=', qcontext.get("name"))])
+            partner = request.env['res.partner'].sudo().search(
+                [('email', '=', qcontext.get("login")), ('name', '=', qcontext.get("name"))])
+
+            if qcontext.get("date_of_birth"):
+                date = datetime.strptime(str(qcontext.get("date_of_birth")), '%Y-%m-%d')
+                if user:
+                    user.update({'birthday': date})
+                if partner:
+                    partner.update({'date': date})
+        return res
 
 
 class WebsiteSaleFormProfumeria(WebsiteSaleForm):

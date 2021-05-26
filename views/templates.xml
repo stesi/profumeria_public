@@ -267,7 +267,14 @@
                 </div>
             </xpath>
         </template>
-
+         <template id="add_date_to_signup" inherit_id="auth_signup.fields">
+            <xpath expr="//div[2]" position="after">
+                <div class="form-group field-name">
+                    <label for="date_of_birth">Date of Birth</label>
+                    <input type="date" name="date_of_birth" t-att-value="date_of_birth" id="date_of_birth" class="form-control form-control-sm"/>
+                </div>
+            </xpath>
+         </template>
         <!--        <template id="cart_summary_newsletter" inherit_id="website_sale.cart_summary">-->
         <!--             <xpath expr="//div[hasclass('card')]" position="after">-->
 
