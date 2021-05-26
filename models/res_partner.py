@@ -12,7 +12,13 @@ class ResPartner(models.Model):
     last_purchase_date = fields.Datetime(compute = '_compute_last_purchase_date',store=True)
     number_of_completed_pos_ids = fields.Integer(compute = '_compute_last_purchase_date',store=True,string="Number of Pos Orders")
     number_of_completed_sale_ids = fields.Integer(compute='_compute_last_purchase_date', store=True,string="Number of Sale Orders")
+    birthday = fields.Date()
 
+    def update_res_user_birthday(self):
+        if self.birthday:
+            user = self.env['res.users'].search([('partner_id', '=', self.id)])
+            if user:
+                user.birthday = self.birthday
 
     @api.depends('pos_ids','sale_ids')
     def _compute_last_purchase_date(self):

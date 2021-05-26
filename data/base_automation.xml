@@ -7,8 +7,18 @@
             <field name="state">code</field>
             <field name="trigger_field_ids" eval="[(4, ref('payment.field_payment_transaction__state'))]"/>
             <field name="filter_pre_domain">[["state","=","draft"]]</field>
-            <field name="filter_domain">["|","|",["state","=","pending"],["state","=","authorized"],["state","=","done"]]</field>
+            <field name="filter_domain">
+                ["|","|",["state","=","pending"],["state","=","authorized"],["state","=","done"]]</field>
             <field name="code">record.set_sales_payment_terms_from_pay_method()</field>
+        </record>
+
+        <record id="update_user_birthday" model="base.automation">
+            <field name="name">Update User Birthday</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="trigger">on_write</field>
+            <field name="state">code</field>
+            <field name="trigger_field_ids" eval="[(4, ref('profumeria_public.field_res_partner__birthday'))]"/>
+            <field name="code">record.update_res_user_birthday()</field>
         </record>
     </data>
 </odoo>

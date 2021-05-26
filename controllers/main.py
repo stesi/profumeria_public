@@ -24,8 +24,6 @@ class AuthSignupHomeProfumeria(AuthSignupHome):
         qcontext = self.get_auth_signup_qcontext()
         values = { key: qcontext.get(key) for key in ('login', 'name')}
         if values:
-            user = request.env['res.users'].sudo().search(
-                [('login', '=', qcontext.get("login")), ('name', '=', qcontext.get("name"))])
             partner = request.env['res.partner'].sudo().search(
                 [('email', '=', qcontext.get("login")), ('name', '=', qcontext.get("name"))])
 
@@ -34,10 +32,8 @@ class AuthSignupHomeProfumeria(AuthSignupHome):
             print(qcontext.get("date_of_birth"))
             if qcontext.get("date_of_birth"):
                 date = datetime.strptime(str(qcontext.get("date_of_birth")), '%Y-%m-%d')
-                if user:
-                    user.sudo().update({'birthday': date})
                 if partner:
-                    partner.sudo().update({'date': date})
+                    partner.sudo().update({'birthday': date})
         return res
 
 

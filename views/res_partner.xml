@@ -1,6 +1,6 @@
 <odoo>
 
-     <record id="prof_public_res_parter_inherit_view_tree" model="ir.ui.view">
+    <record id="prof_public_res_parter_inherit_view_tree" model="ir.ui.view">
         <field name="name">prof_public.res.partner.inherit.view.tree</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_tree"/>
@@ -10,6 +10,16 @@
                 <field name="number_of_completed_pos_ids" optional="hide"/>
                 <field name="number_of_completed_sale_ids" optional="hide"/>
                 <field name="amount_total" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="birthday"/>
             </field>
         </field>
     </record>
