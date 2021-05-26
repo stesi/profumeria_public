@@ -25,7 +25,7 @@ class AuthSignupHomeProfumeria(AuthSignupHome):
         values = { key: qcontext.get(key) for key in ('login', 'name')}
         if values:
             user = request.env['res.users'].sudo().search(
-                [('email', '=', qcontext.get("login")), ('name', '=', qcontext.get("name"))])
+                [('login', '=', qcontext.get("login")), ('name', '=', qcontext.get("name"))])
             partner = request.env['res.partner'].sudo().search(
                 [('email', '=', qcontext.get("login")), ('name', '=', qcontext.get("name"))])
 
