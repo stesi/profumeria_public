@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-26 16:14+0000\n"
-"PO-Revision-Date: 2021-05-26 18:14+0200\n"
+"POT-Creation-Date: 2021-05-27 08:16+0000\n"
+"PO-Revision-Date: 2021-05-27 10:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -39,6 +39,11 @@ msgstr "Totale"
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_line__product_barcode
 msgid "Barcode"
 msgstr "Codice a barre"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_res_partner__birthday
+msgid "Birthday"
+msgstr "Data Di Nascita"
 
 #. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_pos_order_line__brand
@@ -116,6 +121,7 @@ msgstr "Riga DdT"
 #: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_res_partner__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__display_name
@@ -147,6 +153,7 @@ msgstr "Voglio la fattura"
 #: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order__id
 #: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line__id
 #: model:ir.model.fields,field_description:profumeria_public.field_res_partner__id
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users__id
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order__id
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__id
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__id
@@ -179,6 +186,7 @@ msgstr "Numero articolo internazionale usato per l'identificazione del prodotto"
 #: model:ir.model.fields,field_description:profumeria_public.field_profumeria_public_import_order____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_purchase_order_line____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_res_partner____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note____last_update
@@ -398,6 +406,28 @@ msgstr "Prezzo Totale:"
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__total_prices
 msgid "Total Prices"
 msgstr "Prezzi Totali"
+
+#. module: profumeria_public
+#: model:ir.actions.server,name:profumeria_public.update_user_birthday_ir_actions_server
+msgid "Update User Birthday"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.actions.server,name:profumeria_public.update_users_birthday_ir_actions_server
+#: model:ir.cron,cron_name:profumeria_public.update_users_birthday
+#: model:ir.cron,name:profumeria_public.update_users_birthday
+msgid "Update Users Birthday"
+msgstr ""
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_res_users__user_birthday
+msgid "User Birthday"
+msgstr "Data Di Nascita"
+
+#. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_res_users
+msgid "Users"
+msgstr "Utenti"
 
 #. module: profumeria_public
 #: model:ir.model.fields,help:profumeria_public.field_stock_delivery_note__currency_id
