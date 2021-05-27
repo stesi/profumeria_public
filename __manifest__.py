@@ -41,6 +41,7 @@
         'views/product_brand_ept.xml',
         'views/account_payment_term.xml',
         'views/payment_acquirer.xml',
+        'views/res_users.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
