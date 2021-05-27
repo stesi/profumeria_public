@@ -5,4 +5,4 @@ from odoo.exceptions import ValidationError
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    birthday = fields.Date()
+    birthday = fields.Date(website_form_blacklisted=False)
