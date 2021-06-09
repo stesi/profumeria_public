@@ -6,21 +6,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-27 08:16+0000\n"
-"PO-Revision-Date: 2021-05-27 10:17+0200\n"
+"POT-Creation-Date: 2021-06-09 13:17+0000\n"
+"PO-Revision-Date: 2021-06-09 13:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: it\n"
-"X-Generator: Poedit 2.4.2\n"
 
 #. module: profumeria_public
 #: model_terms:ir.ui.view,arch_db:profumeria_public.payment_tokens_list
 msgid "* This field is obligatory, You must agree before pay."
-msgstr "* Questo campo è obbligatorio, è necessario accettare prima di pagare."
+msgstr ""
+"* Questo campo è obbligatorio, è necessario accettare prima di pagare."
 
 #. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_product_brand_ept__activate_website_description
@@ -59,6 +58,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:profumeria_public.product_shop_cat_brand
 msgid "Category"
 msgstr "Categoria"
+
+#. module: profumeria_public
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_type__compute_negative_price
+msgid "Compute Negative Price"
+msgstr "Calcola Totale\Margine in negativo"
 
 #. module: profumeria_public
 #: model:ir.model,name:profumeria_public.model_res_partner
@@ -108,6 +112,11 @@ msgid "Delivery Note Line"
 msgstr "Riga DdT"
 
 #. module: profumeria_public
+#: model:ir.model,name:profumeria_public.model_stock_delivery_note_type
+msgid "Delivery Note Type"
+msgstr ""
+
+#. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_choose_delivery_carrier__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_payment_acquirer__display_name
@@ -126,6 +135,7 @@ msgstr "Riga DdT"
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__display_name
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_line__display_name
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_type__display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
 
@@ -158,6 +168,7 @@ msgstr "Voglio la fattura"
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line__id
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__id
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_line__id
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_type__id
 msgid "ID"
 msgstr ""
 
@@ -170,7 +181,8 @@ msgstr ""
 #: model:ir.model.fields,help:profumeria_public.field_sale_order_line__product_barcode
 #: model:ir.model.fields,help:profumeria_public.field_stock_delivery_note_line__product_barcode
 msgid "International Article Number used for product identification."
-msgstr "Numero articolo internazionale usato per l'identificazione del prodotto"
+msgstr ""
+"Numero articolo internazionale usato per l'identificazione del prodotto"
 
 #. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_account_payment_term____last_update
@@ -191,6 +203,7 @@ msgstr "Numero articolo internazionale usato per l'identificazione del prodotto"
 #: model:ir.model.fields,field_description:profumeria_public.field_sale_order_line____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note____last_update
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_line____last_update
+#: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note_type____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
 
@@ -406,18 +419,6 @@ msgstr "Prezzo Totale:"
 #: model:ir.model.fields,field_description:profumeria_public.field_stock_delivery_note__total_prices
 msgid "Total Prices"
 msgstr "Prezzi Totali"
-
-#. module: profumeria_public
-#: model:ir.actions.server,name:profumeria_public.update_user_birthday_ir_actions_server
-msgid "Update User Birthday"
-msgstr ""
-
-#. module: profumeria_public
-#: model:ir.actions.server,name:profumeria_public.update_users_birthday_ir_actions_server
-#: model:ir.cron,cron_name:profumeria_public.update_users_birthday
-#: model:ir.cron,name:profumeria_public.update_users_birthday
-msgid "Update Users Birthday"
-msgstr ""
 
 #. module: profumeria_public
 #: model:ir.model.fields,field_description:profumeria_public.field_res_users__user_birthday
