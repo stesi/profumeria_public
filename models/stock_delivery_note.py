@@ -15,6 +15,9 @@ class StockDeliveryNote(models.Model):
             for sale in ddt.sale_ids:
                 ddt.margin += sale.margin
 
+            if ddt.type_id.compute_negative_price and ddt.margin > 0:
+                ddt.margin = ddt.margin * -1
+
 
     countersign = fields.Boolean(string="Countersign", compute='compute_countersign')
 
@@ -43,6 +46,9 @@ class StockDeliveryNote(models.Model):
                 ddt.total_prices = float(sum(l.price_unit * l.product_qty for l in ddt.line_ids))
             else:
                 ddt.total_prices = 0
+
+            if ddt.type_id.compute_negative_price and ddt.total_prices>0:
+                ddt.total_prices = ddt.total_prices * -1
 
 
     @api.depends("sale_ids")

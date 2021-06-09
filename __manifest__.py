@@ -42,6 +42,7 @@
         'views/account_payment_term.xml',
         'views/payment_acquirer.xml',
         'views/res_users.xml',
+        'views/stock_delivery_note_type.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
