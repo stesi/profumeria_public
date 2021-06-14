@@ -10,7 +10,8 @@
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="margin" optional="show"/>
                     <field name="payment_term_ids" widget="many2many_tags" optional="show"/>
-                    <field name="total_prices" widget="monetary" optional="show" options="{'currency_field': 'currency_id'}"/>
+                    <field name="total_prices" widget="monetary" optional="show"
+                           options="{'currency_field': 'currency_id'}"/>
                 </xpath>
             </field>
         </record>
@@ -20,12 +21,16 @@
             <field name="model">stock.delivery.note</field>
             <field name="inherit_id" ref="l10n_it_delivery_note.stock_delivery_note_form_view"/>
             <field name="arch" type="xml">
+                <xpath expr="//page[@name='details']//tree//control//create" position="before">
+                    <create string="Add a Line"/>
+                </xpath>
                 <xpath expr="//page[@name='details']//tree//field[@name='product_id']" position="after">
                     <field name="product_barcode" optional="show"/>
                 </xpath>
 
                 <xpath expr="//field[@name='transport_reason_id']" position="after">
-                    <field name="payment_term_ids" widget="many2many_tags"/>
+                    <field name="payment_term_ids" widget="many2many_tags" context="{'force_add_manually_line': force_add_manually_line}"/>
+                    <field name="force_add_manually_line" invisible="True"/>
                 </xpath>
             </field>
         </record>

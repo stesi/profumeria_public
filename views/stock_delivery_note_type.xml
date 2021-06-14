@@ -7,6 +7,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='default_goods_appearance_id']" position="after">
                     <field name="compute_negative_price"/>
+                    <field name="force_add_manually_line" groups="stock.group_stock_manager"/>
                 </xpath>
             </field>
         </record>
