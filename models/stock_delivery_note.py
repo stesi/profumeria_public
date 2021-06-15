@@ -19,17 +19,29 @@ class StockDeliveryNote(models.Model):
             if not self.force_add_manually_line:
                 raise ValidationError("Not allowed to create manually line")
 
-    @api.depends("sale_ids")
+    @api.depends("sale_ids","line_ids")
     def _compute_margin(self):
         for ddt in self:
             ddt.margin = 0
-            for sale in ddt.sale_ids:
-                ddt.margin += sale.margin
+            if len(ddt.sale_ids)>0:
+                for sale in ddt.sale_ids:
+                    ddt.margin += sale.margin
+            else:
+                ddt.margin = ddt.compute_margin_without_sale()
 
             if ddt.type_id.compute_negative_price and ddt.margin > 0:
                 ddt.margin = ddt.margin * -1
 
     countersign = fields.Boolean(string="Countersign", compute='compute_countersign')
+
+    def compute_margin_without_sale(self):
+        margin = 0
+        for line in self.line_ids:
+            product = line.product_id
+            margin += (line.price_unit * line.product_qty) - (product.standard_price * line.product_qty)
+
+        return margin
+
 
     def compute_countersign(self):
         for delivery in self:
@@ -65,3 +77,13 @@ class StockDeliveryNote(models.Model):
     def _compute_payment_term_ids(self):
         for ddt in self:
             ddt.payment_term_ids = ddt.sale_ids.mapped("payment_term_id")
+
+
+    def write(self, vals):
+        return super(StockDeliveryNote, self).write(vals)
+
+    @api.depends("state", "line_ids", "line_ids.invoice_status")
+    def _compute_invoice_status(self):
+        for note in self:
+            if len(note.picking_ids)>0:
+                super(StockDeliveryNote, note)._compute_invoice_status()
